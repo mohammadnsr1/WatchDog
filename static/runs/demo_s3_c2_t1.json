@@ -1,0 +1,22 @@
+{
+ "run_id": "demo_s3_c2_t1",
+ "title": "[PLACEHOLDER] Demo run: injected fault caught by a monitor",
+ "subtitle": "Fake data for layout testing",
+ "scenario": "S3",
+ "fault_class": 2,
+ "assembly": "fmb_assembly_2",
+ "trial": 1,
+ "video_duration_s": 60.0,
+ "real_window_s": [0.0, 300.0],
+ "events": [
+  {"t_real": 12.0, "t_video": 1.5, "lane": "executor", "kind": "step_start", "label": "begin pick_part_a", "detail": "Fake event. Step pick_part_a announced."},
+  {"t_real": 12.0, "t_video": 1.5, "lane": "bus", "kind": "begin_step", "label": "begin_step pick_part_a", "detail": "Fake event."},
+  {"t_real": 13.1, "t_video": 2.6, "lane": "watchdog", "kind": "wake", "label": "wake: arming", "detail": "Fake event. The WatchDog wakes to arm monitors for the step."},
+  {"t_real": 15.4, "t_video": 4.9, "lane": "monitors", "kind": "arm", "label": "arm effort part_a", "detail": "Fake event. Effort monitor armed with the registry clamp limit."},
+  {"t_real": 48.2, "t_video": 14.0, "lane": "monitors", "kind": "fire", "label": "FIRE effort part_a", "detail": "Fake event. Measured effort above the limit."},
+  {"t_real": 48.3, "t_video": 18.1, "lane": "watchdog", "kind": "wake", "label": "wake: fire", "detail": "Fake event. Immediate wake on the monitor fire."},
+  {"t_real": 61.0, "t_video": 24.0, "lane": "watchdog", "kind": "look_frame", "label": "frame 0001", "detail": "Fake event. The WatchDog looks at the scene."},
+  {"t_real": 70.5, "t_video": 30.2, "lane": "bus", "kind": "end_step", "label": "end_step pick_part_a", "detail": "Fake event. Executor claims success."},
+  {"t_real": 72.0, "t_video": 33.0, "lane": "watchdog", "kind": "verdict", "label": "FAIL pick_part_a", "detail": "Fake event. Effort exceeded the limit during the grasp, so the step is non conformant."}
+ ]
+}

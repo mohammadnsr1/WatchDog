@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WatchDog: physically grounded conformance monitoring for agentic robotic systems.">
+  <title>WatchDog</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Castoro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+
+<!-- 1. Hero -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h1 class="title is-2 publication-title">WatchDog: Physically Grounded Conformance Monitoring for Agentic Robotic Systems</h1>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block"><a href="#">[PLACEHOLDER] Author One</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="#">[PLACEHOLDER] Author Two</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="#">[PLACEHOLDER] Author Three</a><sup>1</sup></span>
+        </div>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block"><sup>1</sup>School of Manufacturing and Systems, Arizona State University</span>
+        </div>
+        <div class="is-size-6 publication-venue">[PLACEHOLDER] Venue and year</div>
+
+        <div class="publication-links">
+          <a href="#" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper (arXiv)</span>
+          </a>
+          <a href="#" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="fab fa-youtube"></i></span><span>Video</span>
+          </a>
+          <a href="#" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+          </a>
+          <a href="#" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="fas fa-database"></i></span><span>Logs</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="media-frame" data-placeholder="[PLACEHOLDER] static/videos/teaser.mp4">
+        <video id="teaser" autoplay muted loop playsinline width="100%">
+          <source src="static/videos/teaser.mp4" type="video/mp4">
+        </video>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        [PLACEHOLDER] One sentence that says what the teaser video shows.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            [PLACEHOLDER] Abstract paragraph. State the problem, the WatchDog architecture, the
+            evaluation, and the main result in plain language.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Overview figure -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Overview</h2>
+    <figure class="figure-block">
+      <img class="placeholder-img" src="static/images/teaser_figure.png" alt="Overview figure" data-placeholder="[PLACEHOLDER] static/images/teaser_figure.png">
+      <figcaption>[PLACEHOLDER] Caption for the overview figure.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 5. Architecture -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Architecture</h2>
+    <figure class="figure-block">
+      <img class="placeholder-img" src="static/images/architecture.png" alt="Architecture figure" data-placeholder="[PLACEHOLDER] static/images/architecture.png">
+      <figcaption>[PLACEHOLDER] Caption for the architecture figure: the executor, the WatchDog, their disjoint tools, and the shared event bus.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 6. How it works -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">How it works</h2>
+    <figure class="figure-block">
+      <img class="placeholder-img" src="static/images/runtime_cycle.png" alt="Runtime data flow" data-placeholder="[PLACEHOLDER] static/images/runtime_cycle.png">
+      <figcaption>[PLACEHOLDER] Data flow across four lanes: Executor Agent, ROS 2 Event Bus, Deterministic Monitors, WatchDog Agent.</figcaption>
+    </figure>
+    <div class="content has-text-justified">
+      <p>
+        [PLACEHOLDER] WatchDog reasons only at wake points: when the executor announces a step,
+        when a deterministic monitor fires, when a step ends, and on timeout. Between wake points
+        the monitors watch the physical signals at sensor rate and the WatchDog agent costs nothing.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Run Explorer -->
+<section class="section" id="run-explorer">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Run Explorer</h2>
+    <p class="has-text-centered explorer-intro">
+      Pick a run. Click any event to jump the video there. Playback speed varies, so each event shows
+      both its video time and its real session time.
+    </p>
+
+    <div class="columns is-multiline explorer-filters">
+      <div class="column is-3-desktop is-6-tablet is-12-mobile">
+        <label class="label" for="sel-assembly">Assembly</label>
+        <div class="select is-fullwidth"><select id="sel-assembly"></select></div>
+      </div>
+      <div class="column is-3-desktop is-6-tablet is-12-mobile">
+        <label class="label" for="sel-scenario">Scenario</label>
+        <div class="select is-fullwidth"><select id="sel-scenario"></select></div>
+      </div>
+      <div class="column is-3-desktop is-6-tablet is-12-mobile">
+        <label class="label" for="sel-class">Fault class</label>
+        <div class="select is-fullwidth"><select id="sel-class"></select></div>
+      </div>
+      <div class="column is-3-desktop is-6-tablet is-12-mobile">
+        <label class="label" for="sel-trial">Trial</label>
+        <div class="select is-fullwidth"><select id="sel-trial"></select></div>
+      </div>
+    </div>
+
+    <div id="explorer-message" class="notification is-light is-hidden" role="status"></div>
+
+    <div class="columns explorer-body" id="explorer-body">
+      <div class="column is-7">
+        <h3 class="title is-5" id="run-title">&nbsp;</h3>
+        <p class="subtitle is-6" id="run-subtitle">&nbsp;</p>
+        <div class="video-wrap" id="video-wrap">
+          <video id="run-video" controls playsinline preload="metadata"></video>
+          <div class="video-placeholder is-hidden" id="video-placeholder">
+            <span>Video not available yet for this run.</span>
+          </div>
+        </div>
+        <div class="event-detail" id="event-detail">
+          <p class="has-text-grey">Select an event to see its details.</p>
+        </div>
+      </div>
+      <div class="column is-5">
+        <div class="lane-legend">
+          <span class="chip lane-executor">Executor</span>
+          <span class="chip lane-bus">Bus</span>
+          <span class="chip lane-monitors">Monitor</span>
+          <span class="chip lane-watchdog">WatchDog</span>
+        </div>
+        <ol class="event-list" id="event-list" aria-label="Event log"></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-narrow results-table">
+        <thead>
+          <tr><th>Scenario</th><th>Clean</th><th>Class 1</th><th>Class 2</th><th>Class 3</th><th>Class 4</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>S1</th><td>[--]</td><td>[--]</td><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+          <tr><th>S2</th><td>[--]</td><td>[--]</td><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+          <tr><th>S3</th><td>[--]</td><td>[--]</td><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+          <tr><th>S4</th><td>[--]</td><td>[--]</td><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="has-text-centered has-text-grey">[PLACEHOLDER] Table caption and metric definition.</p>
+  </div>
+</section>
+
+<!-- 9. BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="bibtex-wrap">
+      <button class="button is-small copy-btn" id="copy-bibtex" type="button">
+        <span class="icon"><i class="far fa-copy"></i></span><span>Copy</span>
+      </button>
+<pre id="bibtex"><code>@inproceedings{watchdog_placeholder,
+  title     = {WatchDog: Physically Grounded Conformance Monitoring for Agentic Robotic Systems},
+  author    = {[PLACEHOLDER]},
+  booktitle = {[PLACEHOLDER]},
+  year      = {[PLACEHOLDER]}
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website is adapted from the
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page</a>,
+            licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="static/js/run_explorer.js"></script>
+</body>
+</html>

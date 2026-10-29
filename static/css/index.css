@@ -1,0 +1,164 @@
+/* WatchDog project page. Section rhythm follows the Nerfies template. */
+
+:root {
+  --executor: #2f6fb5;
+  --watchdog: #2e9e5b;
+  --monitor: #47b36f;
+  --bus: #6e7781;
+  --fail: #d63a3a;
+  --timeout: #8c8c8c;
+  --ink: #1f2328;
+  --muted: #57606a;
+  --panel: #f6f8fa;
+  --line: #d0d7de;
+  --highlight: #fff4cc;
+}
+
+body {
+  font-family: "Noto Sans", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.publication-title {
+  font-family: "Castoro", Georgia, serif;
+  line-height: 1.25;
+}
+
+.publication-authors { margin-top: 0.75rem; }
+.publication-authors a { color: hsl(204, 86%, 53%) !important; }
+.author-block { display: inline-block; margin-right: 0.25rem; }
+.publication-venue { color: var(--muted); margin-top: 0.5rem; }
+.publication-links { margin-top: 1.25rem; }
+.publication-links .button { margin: 0.25rem; }
+
+.teaser .hero-body { padding-top: 0; padding-bottom: 2rem; }
+
+.figure-block { margin: 0 auto 1.25rem; text-align: center; }
+.figure-block img { max-width: 100%; height: auto; }
+.figure-block figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+
+/* Missing media: a labelled box instead of a broken image or a blank area. */
+.media-missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  padding: 1rem;
+  border: 2px dashed var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.media-frame video { display: block; width: 100%; border-radius: 8px; }
+
+/* ---------------- Run Explorer ---------------- */
+
+.explorer-intro { color: var(--muted); margin-bottom: 1.25rem; }
+.explorer-filters .label { font-size: 0.9rem; }
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #20232a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.video-wrap video { width: 100%; height: 100%; display: block; }
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e6e6e6;
+  background-size: cover;
+  background-position: center;
+}
+.video-placeholder span {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+}
+
+.event-detail {
+  margin-top: 0.9rem;
+  padding: 0.75rem 1rem;
+  background: var(--panel);
+  border-radius: 8px;
+  min-height: 4.5rem;
+}
+.event-detail .times { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.3rem; }
+.event-detail .label-line { font-weight: 600; margin-bottom: 0.25rem; }
+
+.lane-legend { margin-bottom: 0.5rem; }
+
+.chip {
+  display: inline-block;
+  min-width: 5.2rem;
+  padding: 0.1rem 0.5rem;
+  margin-right: 0.35rem;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+.lane-executor { background: var(--executor); }
+.lane-bus { background: var(--bus); }
+.lane-monitors { background: var(--monitor); }
+.lane-watchdog { background: var(--watchdog); }
+
+.event-list {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 520px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.event-list li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid #eef1f4;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+.event-list li:hover { background: #f3f6f9; }
+.event-list li.is-current { background: var(--highlight); }
+.event-list li.is-selected { outline: 2px solid var(--executor); outline-offset: -2px; }
+.event-list li .ev-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.event-list li .ev-time { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.8rem; }
+.event-list li.kind-fire .ev-label,
+.event-list li.verdict-fail .ev-label,
+.event-list li.kind-halt .ev-label { color: var(--fail); font-weight: 600; }
+.event-list li.kind-timeout .ev-label { color: var(--timeout); }
+.event-list .empty { cursor: default; color: var(--muted); display: block; }
+
+/* ---------------- Results and BibTeX ---------------- */
+
+.results-table th, .results-table td { text-align: center; }
+
+.bibtex-wrap { position: relative; }
+.copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; }
+#bibtex { white-space: pre-wrap; word-break: break-word; }
+
+/* ---------------- Phone width ---------------- */
+
+@media screen and (max-width: 768px) {
+  .publication-title { font-size: 1.6rem !important; }
+  .section { padding: 2rem 1rem; }
+  .hero-body { padding: 2rem 1rem; }
+  .event-list { max-height: 360px; }
+  .event-list li { grid-template-columns: auto 1fr; }
+  .event-list li .ev-time { grid-column: 1 / -1; }
+  .copy-btn { position: static; margin-bottom: 0.5rem; }
+}

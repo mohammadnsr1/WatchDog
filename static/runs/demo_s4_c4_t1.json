@@ -1,0 +1,19 @@
+{
+ "run_id": "demo_s4_c4_t1",
+ "title": "[PLACEHOLDER] Demo run: executor monitors itself",
+ "subtitle": "Fake data for layout testing",
+ "scenario": "S4",
+ "fault_class": 4,
+ "assembly": "fmb_assembly_2",
+ "trial": 1,
+ "video_duration_s": 45.0,
+ "real_window_s": [0.0, 280.0],
+ "events": [
+  {"t_real": 9.0, "t_video": 1.1, "lane": "executor", "kind": "step_start", "label": "begin pick_part_a", "detail": "Fake event. Step pick_part_a announced."},
+  {"t_real": 11.2, "t_video": 3.3, "lane": "monitors", "kind": "arm", "label": "arm mon_01 part_a", "detail": "Fake event. The executor arms its own monitor."},
+  {"t_real": 40.6, "t_video": 9.0, "lane": "monitors", "kind": "fire", "label": "FIRE mon_01 part_a", "detail": "Fake event. Fire lands mid motion; the executor sees it at its next poll."},
+  {"t_real": 52.0, "t_video": 15.5, "lane": "executor", "kind": "tool_call", "label": "get_monitor_fires", "detail": "Fake event. Poll returns the fire."},
+  {"t_real": 66.0, "t_video": 21.0, "lane": "bus", "kind": "end_step", "label": "end_step pick_part_a", "detail": "Fake event."},
+  {"t_real": 67.5, "t_video": 24.0, "lane": "executor", "kind": "verdict", "label": "PASS pick_part_a", "detail": "Fake event. The executor judges its own step against its own registry."}
+ ]
+}

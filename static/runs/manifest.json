@@ -1,0 +1,29 @@
+{
+ "note": "PLACEHOLDER manifest with two fake runs. paper_media/replay/cli.py web overwrites entries by run_id; delete the two demo entries and their JSON files once real runs are exported.",
+ "runs": [
+  {
+   "run_id": "demo_s3_c2_t1",
+   "title": "[PLACEHOLDER] Demo run: injected fault caught by a monitor",
+   "subtitle": "Fake data for layout testing",
+   "scenario": "S3",
+   "fault_class": 2,
+   "assembly": "fmb_assembly_2",
+   "trial": 1,
+   "video": null,
+   "poster": null,
+   "json": "static/runs/demo_s3_c2_t1.json"
+  },
+  {
+   "run_id": "demo_s4_c4_t1",
+   "title": "[PLACEHOLDER] Demo run: executor monitors itself",
+   "subtitle": "Fake data for layout testing",
+   "scenario": "S4",
+   "fault_class": 4,
+   "assembly": "fmb_assembly_2",
+   "trial": 1,
+   "video": null,
+   "poster": null,
+   "json": "static/runs/demo_s4_c4_t1.json"
+  }
+ ]
+}
