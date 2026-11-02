@@ -102,10 +102,7 @@
     { key: "fault_class", el: "sel-class", value: function (r) { return r.fault_class == null || r.fault_class === "" ? "none" : String(r.fault_class); },
       text: function (v) { return v === "none" ? "None" : /^\d+$/.test(v) ? "Class " + v : v; } },
     { key: "trial", el: "sel-trial", value: function (r) { return r.trial == null ? "1" : String(r.trial); },
-      text: function (v) { return "Trial " + v; } },
-    // One session can have several clips; only the clips of the current selection are listed.
-    { key: "clip", el: "sel-clip", value: function (r) { return r.title || r.run_id; },
-      text: function (v) { return v; }, matchingOnly: true }
+      text: function (v) { return "Trial " + v; } }
   ];
 
   var state = { runs: [], sel: {}, run: null, events: [], current: -1, selected: -1, hasVideo: false };
@@ -149,7 +146,6 @@
         var probe = Object.assign({}, state.sel);
         probe[d.key] = v;
         opt.disabled = !state.runs.some(function (r) { return matches(r, probe); });
-        if (opt.disabled && d.matchingOnly) { return; }
         if (opt.disabled) { opt.textContent += " (no run)"; }
         el.appendChild(opt);
       });
