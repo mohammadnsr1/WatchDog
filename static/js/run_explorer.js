@@ -9,7 +9,7 @@
   // Option text for the scenario dropdown. [PLACEHOLDER] entries need the paper's wording.
   var SCENARIO_TEXT = {
     S1: "S1: library monitors",
-    S2: "S2: [PLACEHOLDER] short description",
+    S2: "S2: library + authored monitors",
     S3: "S3: authored monitors",
     S4: "S4: executor self monitoring, no WatchDog"
   };
