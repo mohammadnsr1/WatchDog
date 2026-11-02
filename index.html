@@ -131,7 +131,7 @@
     </p>
 
     <div class="columns is-multiline explorer-filters">
-      <div class="column is-3-desktop is-6-tablet is-12-mobile">
+      <div class="column is-2-desktop is-6-tablet is-12-mobile">
         <label class="label" for="sel-assembly">Assembly</label>
         <div class="select is-fullwidth"><select id="sel-assembly"></select></div>
       </div>
@@ -139,13 +139,17 @@
         <label class="label" for="sel-scenario">Scenario</label>
         <div class="select is-fullwidth"><select id="sel-scenario"></select></div>
       </div>
-      <div class="column is-3-desktop is-6-tablet is-12-mobile">
+      <div class="column is-2-desktop is-6-tablet is-12-mobile">
         <label class="label" for="sel-class">Fault class</label>
         <div class="select is-fullwidth"><select id="sel-class"></select></div>
       </div>
-      <div class="column is-3-desktop is-6-tablet is-12-mobile">
+      <div class="column is-1-desktop is-6-tablet is-12-mobile">
         <label class="label" for="sel-trial">Trial</label>
         <div class="select is-fullwidth"><select id="sel-trial"></select></div>
+      </div>
+      <div class="column is-4-desktop is-12-tablet is-12-mobile">
+        <label class="label" for="sel-clip">Clip</label>
+        <div class="select is-fullwidth"><select id="sel-clip"></select></div>
       </div>
     </div>
 
@@ -154,7 +158,8 @@
     <div class="columns explorer-body" id="explorer-body">
       <div class="column is-7">
         <h3 class="title is-5" id="run-title">&nbsp;</h3>
-        <p class="subtitle is-6" id="run-subtitle">&nbsp;</p>
+        <p class="subtitle is-6 mb-1" id="run-subtitle">&nbsp;</p>
+        <p class="is-size-7 has-text-grey mb-3" id="run-agents"></p>
         <div class="video-wrap" id="video-wrap">
           <video id="run-video" controls playsinline preload="metadata"></video>
           <div class="video-placeholder is-hidden" id="video-placeholder">

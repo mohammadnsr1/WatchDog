@@ -2,6 +2,7 @@
  "run_id": "s3_natural_place_inverted_u_yellow",
  "title": "A placement that disturbs the assembly",
  "subtitle": "Five monitors fire on impact; the WatchDog returns non_conformant on the step and the run",
+ "agents": "WatchDog: Claude Opus 5.5, medium effort  \u00b7  Executor: Claude Sonnet 5, low effort",
  "scenario": "S3",
  "fault_class": "Natural failure",
  "assembly": "fmb_assembly_2",

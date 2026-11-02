@@ -2,6 +2,7 @@
  "run_id": "s3_c1_observation",
  "title": "Unexpected objects in the cell",
  "subtitle": "A foreign cube and a passing visitor; the WatchDog records both, the run stays conformant",
+ "agents": "WatchDog: Claude Opus 5.5, medium effort  \u00b7  Executor: Claude Sonnet 5, low effort",
  "scenario": "S3",
  "fault_class": 1,
  "assembly": "fmb_assembly_2",

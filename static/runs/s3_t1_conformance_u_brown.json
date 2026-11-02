@@ -1,0 +1,289 @@
+{
+ "run_id": "s3_t1_conformance_u_brown",
+ "title": "Conformance: pick and place of u_brown",
+ "subtitle": "Monitors armed per step; a border watch fires once and the WatchDog checks it",
+ "agents": "WatchDog: Claude Opus 5.5, medium effort  \u00b7  Executor: Claude Sonnet 5, low effort",
+ "scenario": "S3",
+ "fault_class": 1,
+ "assembly": "fmb_assembly_2",
+ "trial": 1,
+ "video_duration_s": 41.609,
+ "real_window_s": [
+  220.0,
+  352.0
+ ],
+ "events": [
+  {
+   "t_real": 222.226,
+   "t_video": 2.205,
+   "lane": "bus",
+   "kind": "begin_step",
+   "label": "begin_step pick_u_brown",
+   "detail": "begin_step pick_u_brown"
+  },
+  {
+   "t_real": 222.226,
+   "t_video": 2.205,
+   "lane": "executor",
+   "kind": "step_start",
+   "label": "begin pick_u_brown",
+   "detail": "Step pick_u_brown announced. Objects: u_brown."
+  },
+  {
+   "t_real": 222.228,
+   "t_video": 2.206,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: arming",
+   "detail": "wait_for_event returned after 6.07 s, wake=begin_step (step pick_u_brown)"
+  },
+  {
+   "t_real": 228.475,
+   "t_video": 4.079,
+   "lane": "monitors",
+   "kind": "arm",
+   "label": "arm clamp_u_brown u_brown",
+   "detail": "Armed clamp_u_brown (authored) on u_brown. Threshold 100.0 authored, source raw_spec.limits.max_clamp_effort. Purpose clause. Bound parameters: {\"max_clamp_effort\": {\"value\": 100, \"source\": \"raw_spec.limits.max_clamp_effort\"}}"
+  },
+  {
+   "t_real": 233.255,
+   "t_video": 4.876,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_end"
+  },
+  {
+   "t_real": 236.33,
+   "t_video": 5.388,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 243.434,
+   "t_video": 6.572,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 4.60 s, wake=skill_end"
+  },
+  {
+   "t_real": 245.489,
+   "t_video": 6.915,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 254.198,
+   "t_video": 8.366,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 4.46 s, wake=skill_end"
+  },
+  {
+   "t_real": 259.829,
+   "t_video": 9.305,
+   "lane": "monitors",
+   "kind": "arm",
+   "label": "arm slip_u_brown u_brown",
+   "detail": "Armed slip_u_brown (authored) on u_brown. Threshold 0.02 authored, source raw_spec.tolerances.grasp_slip_tolerance_m. Purpose clause. Bound parameters: {\"grasp_slip_tolerance_m\": {\"value\": 0.02, \"source\": \"raw_spec.tolerances.grasp_slip_tolerance_m\"}}"
+  },
+  {
+   "t_real": 264.426,
+   "t_video": 10.071,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: phase",
+   "detail": "wait_for_event returned after 0.00 s, wake=phase (step pick_u_brown)"
+  },
+  {
+   "t_real": 272.03,
+   "t_video": 12.172,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE obs_workspace_border u_brown",
+   "detail": "Monitor obs_workspace_border fired on u_brown: value 0.04190340909090909 vs threshold 0.02. Purpose observation. Action flag. trigger_wall_ns 1793649730980678038"
+  },
+  {
+   "t_real": 272.031,
+   "t_video": 13.172,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm obs_workspace_border",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 272.032,
+   "t_video": 13.174,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: fire",
+   "detail": "wait_for_event returned after 2.90 s, wake=monitor_fire (obs_workspace_border on u_brown)"
+  },
+  {
+   "t_real": 274.485,
+   "t_video": 15.247,
+   "lane": "watchdog",
+   "kind": "look_frame",
+   "label": "frame 0002-543ca9fd",
+   "detail": "Border observation monitor fired (4.2% of border pixels changed depth by >5 cm). Checking whether something entered the workspace or whether the arm itself crossed the border strip."
+  },
+  {
+   "t_real": 274.578,
+   "t_video": 16.341,
+   "lane": "watchdog",
+   "kind": "look",
+   "label": "look() 0002-543ca9fd",
+   "detail": "Border observation monitor fired (4.2% of border pixels changed depth by >5 cm). Checking whether something entered the workspace or whether the arm itself crossed the border strip."
+  },
+  {
+   "t_real": 275.165,
+   "t_video": 16.927,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step pick_u_brown",
+   "detail": "end_step pick_u_brown claimed success"
+  },
+  {
+   "t_real": 275.165,
+   "t_video": 16.927,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "pick_u_brown: success",
+   "detail": "Executor claims success for pick_u_brown. {\"grasp_stop_reason\": \"force_threshold\", \"final_width_m\": 0.02074465814521015, \"expected_width_m\": 0.02, \"final_effort\": 22.4733, \"max_clamp_effort\": 100, \"lifted_height_m\": 0.2}"
+  },
+  {
+   "t_real": 275.765,
+   "t_video": 19.528,
+   "lane": "bus",
+   "kind": "begin_step",
+   "label": "begin_step place_approach_u_brown",
+   "detail": "begin_step place_approach_u_brown"
+  },
+  {
+   "t_real": 275.765,
+   "t_video": 19.528,
+   "lane": "executor",
+   "kind": "step_start",
+   "label": "begin place_approach_u_brown",
+   "detail": "Step place_approach_u_brown announced. Objects: u_brown."
+  },
+  {
+   "t_real": 284.987,
+   "t_video": 21.898,
+   "lane": "monitors",
+   "kind": "arm",
+   "label": "arm obs_workspace_border_v2 u_brown",
+   "detail": "Armed obs_workspace_border_v2 (authored) on u_brown. Threshold 0.02 authored, source agent_chosen. Purpose observation. Bound parameters: {\"border_px\": {\"value\": 16, \"source\": null}, \"depth_change_m\": {\"value\": 0.05, \"source\": null}, \"changed_frac\": {\"value\": 0.02, \"source\": n..."
+  },
+  {
+   "t_real": 287.251,
+   "t_video": 22.275,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: end_step",
+   "detail": "wait_for_event returned after 0.00 s, wake=end_step (step pick_u_brown)"
+  },
+  {
+   "t_real": 307.403,
+   "t_video": 27.468,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step place_approach_u_brown",
+   "detail": "end_step place_approach_u_brown claimed success"
+  },
+  {
+   "t_real": 307.403,
+   "t_video": 27.468,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "place_approach_u_brown: success",
+   "detail": "Executor claims success for place_approach_u_brown. {\"planner_status\": \"SUCCESS\"}"
+  },
+  {
+   "t_real": 307.868,
+   "t_video": 27.932,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: end_step",
+   "detail": "wait_for_event returned after 0.00 s, wake=end_step (step place_approach_u_brown)"
+  },
+  {
+   "t_real": 308.004,
+   "t_video": 28.068,
+   "lane": "bus",
+   "kind": "begin_step",
+   "label": "begin_step place_u_brown",
+   "detail": "begin_step place_u_brown"
+  },
+  {
+   "t_real": 308.004,
+   "t_video": 28.068,
+   "lane": "executor",
+   "kind": "step_start",
+   "label": "begin place_u_brown",
+   "detail": "Step place_u_brown announced. Objects: u_brown."
+  },
+  {
+   "t_real": 314.043,
+   "t_video": 30.908,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: arming",
+   "detail": "wait_for_event returned after 0.00 s, wake=begin_step (step place_u_brown)"
+  },
+  {
+   "t_real": 318.679,
+   "t_video": 31.681,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 342.394,
+   "t_video": 36.466,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step place_u_brown",
+   "detail": "end_step place_u_brown claimed success"
+  },
+  {
+   "t_real": 342.394,
+   "t_video": 36.466,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "place_u_brown: success",
+   "detail": "Executor claims success for place_u_brown. {\"final_position\": {\"x\": 0.4019150137901306, \"y\": -0.15180474519729614, \"z\": 0.043381620198488235}, \"target_position\": {\"x\": 0.40277692675590515, \"y\": -0.150870218873024, \"z\": 0.04537815973162651}, \"position_error_m\":..."
+  },
+  {
+   "t_real": 342.395,
+   "t_video": 37.468,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: end_step",
+   "detail": "wait_for_event returned after 19.21 s, wake=end_step (step place_u_brown)"
+  },
+  {
+   "t_real": 343.244,
+   "t_video": 38.316,
+   "lane": "bus",
+   "kind": "begin_step",
+   "label": "begin_step pick_u_orange",
+   "detail": "begin_step pick_u_orange"
+  },
+  {
+   "t_real": 343.244,
+   "t_video": 38.316,
+   "lane": "executor",
+   "kind": "step_start",
+   "label": "begin pick_u_orange",
+   "detail": "Step pick_u_orange announced. Objects: u_orange."
+  }
+ ]
+}
