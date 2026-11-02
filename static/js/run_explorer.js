@@ -100,7 +100,7 @@
     { key: "scenario", el: "sel-scenario", value: function (r) { return r.scenario == null ? "unknown" : String(r.scenario); },
       text: function (v) { return SCENARIO_TEXT[v] || v; } },
     { key: "fault_class", el: "sel-class", value: function (r) { return r.fault_class == null || r.fault_class === "" ? "none" : String(r.fault_class); },
-      text: function (v) { return v === "none" ? "None" : "Class " + v; } },
+      text: function (v) { return v === "none" ? "None" : /^\d+$/.test(v) ? "Class " + v : v; } },
     { key: "trial", el: "sel-trial", value: function (r) { return r.trial == null ? "1" : String(r.trial); },
       text: function (v) { return "Trial " + v; } }
   ];

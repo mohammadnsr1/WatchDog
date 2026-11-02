@@ -1,0 +1,344 @@
+{
+ "run_id": "s3_natural_place_inverted_u_yellow",
+ "title": "A placement that disturbs the assembly",
+ "subtitle": "Five monitors fire on impact; the WatchDog returns non_conformant on the step and the run",
+ "scenario": "S3",
+ "fault_class": "Natural failure",
+ "assembly": "fmb_assembly_2",
+ "trial": 1,
+ "video_duration_s": 70.018,
+ "real_window_s": [
+  740.0,
+  952.0
+ ],
+ "events": [
+  {
+   "t_real": 745.819,
+   "t_video": 2.804,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step pick_inverted_u_yellow",
+   "detail": "end_step pick_inverted_u_yellow claimed success"
+  },
+  {
+   "t_real": 745.819,
+   "t_video": 2.804,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "pick_inverted_u_yellow: success",
+   "detail": "Executor claims success for pick_inverted_u_yellow. {\"grasp_stop_reason\": \"force_threshold\", \"final_width_m\": 0.042532607603036565, \"expected_width_m\": 0.04, \"final_effort\": 36.5369, \"max_clamp_effort\": 250, \"lifted_height_m\": 0.3}"
+  },
+  {
+   "t_real": 745.823,
+   "t_video": 2.808,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: end_step",
+   "detail": "wait_for_event returned after 6.18 s, wake=end_step (step pick_inverted_u_yellow)"
+  },
+  {
+   "t_real": 746.521,
+   "t_video": 3.505,
+   "lane": "bus",
+   "kind": "begin_step",
+   "label": "begin_step place_approach_inverted_u_yellow",
+   "detail": "begin_step place_approach_inverted_u_yellow"
+  },
+  {
+   "t_real": 746.521,
+   "t_video": 3.505,
+   "lane": "executor",
+   "kind": "step_start",
+   "label": "begin place_approach_inverted_u_yellow",
+   "detail": "Step place_approach_inverted_u_yellow announced. Objects: inverted_u_yellow."
+  },
+  {
+   "t_real": 754.758,
+   "t_video": 6.711,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: arming",
+   "detail": "wait_for_event returned after 0.00 s, wake=begin_step (step place_approach_inverted_u_yellow)"
+  },
+  {
+   "t_real": 769.931,
+   "t_video": 11.074,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step place_approach_inverted_u_yellow",
+   "detail": "end_step place_approach_inverted_u_yellow claimed success"
+  },
+  {
+   "t_real": 769.931,
+   "t_video": 11.074,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "place_approach_inverted_u_yellow: success",
+   "detail": "Executor claims success for place_approach_inverted_u_yellow. {\"planner_status\": \"SUCCESS\"}"
+  },
+  {
+   "t_real": 769.932,
+   "t_video": 11.075,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: end_step",
+   "detail": "wait_for_event returned after 10.61 s, wake=end_step (step place_approach_inverted_u_yellow)"
+  },
+  {
+   "t_real": 770.73,
+   "t_video": 12.873,
+   "lane": "bus",
+   "kind": "begin_step",
+   "label": "begin_step place_inverted_u_yellow",
+   "detail": "begin_step place_inverted_u_yellow"
+  },
+  {
+   "t_real": 770.73,
+   "t_video": 12.873,
+   "lane": "executor",
+   "kind": "step_start",
+   "label": "begin place_inverted_u_yellow",
+   "detail": "Step place_inverted_u_yellow announced. Objects: inverted_u_yellow, u_brown, u_orange, line_green."
+  },
+  {
+   "t_real": 775.501,
+   "t_video": 14.501,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: arming",
+   "detail": "wait_for_event returned after 0.00 s, wake=begin_step (step place_inverted_u_yellow)"
+  },
+  {
+   "t_real": 787.421,
+   "t_video": 18.321,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE still_u_orange_post2 u_orange",
+   "detail": "Monitor still_u_orange_post2 fired on u_orange: value 0.021691349299120175 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793650246372029793"
+  },
+  {
+   "t_real": 787.422,
+   "t_video": 18.322,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm still_u_orange_post2",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 787.424,
+   "t_video": 18.324,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: fire",
+   "detail": "wait_for_event returned after 6.85 s, wake=monitor_fire (still_u_orange_post2 on u_orange)"
+  },
+  {
+   "t_real": 787.52,
+   "t_video": 19.42,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE still_line_green_post line_green",
+   "detail": "Monitor still_line_green_post fired on line_green: value 0.04142548179187673 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793650246470944317"
+  },
+  {
+   "t_real": 787.521,
+   "t_video": 19.421,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm still_line_green_post",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 787.523,
+   "t_video": 20.423,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE still_u_brown_post3 u_brown",
+   "detail": "Monitor still_u_brown_post3 fired on u_brown: value 0.035017232079575224 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793650246473964411"
+  },
+  {
+   "t_real": 787.524,
+   "t_video": 20.424,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm still_u_brown_post3",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 788.476,
+   "t_video": 22.376,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE slip_inverted_u_yellow inverted_u_yellow",
+   "detail": "Monitor slip_inverted_u_yellow fired on inverted_u_yellow: value 0.020899888869506077 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793650247426721236"
+  },
+  {
+   "t_real": 788.476,
+   "t_video": 22.376,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm slip_inverted_u_yellow",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 789.02,
+   "t_video": 23.92,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE still_base1 base1",
+   "detail": "Monitor still_base1 fired on base1: value 0.020660460337024605 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793650247970929926"
+  },
+  {
+   "t_real": 789.021,
+   "t_video": 23.921,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm still_base1",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 794.266,
+   "t_video": 25.628,
+   "lane": "watchdog",
+   "kind": "frames_captured",
+   "label": "captured 20 frames",
+   "detail": "u_orange_displaced_place_inverted_u_yellow"
+  },
+  {
+   "t_real": 815.121,
+   "t_video": 30.937,
+   "lane": "executor",
+   "kind": "look_frame",
+   "label": "frame 0001-faeb97e3",
+   "detail": "inverted_u_yellow place step reports it and previously seated parts far from expected poses after release and retreat; need to see what actually happened on the fixture"
+  },
+  {
+   "t_real": 815.19,
+   "t_video": 31.005,
+   "lane": "executor",
+   "kind": "look",
+   "label": "look() 0001-faeb97e3",
+   "detail": "inverted_u_yellow place step reports it and previously seated parts far from expected poses after release and retreat; need to see what actually happened on the fixture"
+  },
+  {
+   "t_real": 824.974,
+   "t_video": 34.245,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step place_inverted_u_yellow",
+   "detail": "end_step place_inverted_u_yellow claimed failure"
+  },
+  {
+   "t_real": 824.974,
+   "t_video": 34.245,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "place_inverted_u_yellow: failure",
+   "detail": "Executor claims failure for place_inverted_u_yellow. {\"inverted_u_yellow_final_position\": {\"x\": 0.405290812253952, \"y\": -0.17677906155586243, \"z\": 0.06753354519605637}, \"target_position\": {\"x\": 0.4025467038154602, \"y\": -0.19871921837329865, \"z\": 0.04437203332781792}, \"p..."
+  },
+  {
+   "t_real": 836.858,
+   "t_video": 38.06,
+   "lane": "bus",
+   "kind": "run_ended",
+   "label": "run_ended aborted",
+   "detail": "place_inverted_u_yellow failed: the part did not seat at its placement frame (position error ~39mm vs 12mm tolerance, orientation far off), and the previously seated u_brown, u_orange and line_gree..."
+  },
+  {
+   "t_real": 836.858,
+   "t_video": 38.06,
+   "lane": "executor",
+   "kind": "run_end",
+   "label": "run ended: aborted",
+   "detail": "place_inverted_u_yellow failed: the part did not seat at its placement frame (position error ~39mm vs 12mm tolerance, orientation far off), and the previously seated u_brown, u_orange and line_green were all disturbed well beyond their tolerances -- u_orange was knocked off th..."
+  },
+  {
+   "t_real": 844.279,
+   "t_video": 40.13,
+   "lane": "watchdog",
+   "kind": "verdict",
+   "label": "FAIL place_inverted_u_yellow",
+   "detail": "Finding from fire still_base1 at trigger_wall_ns 1793650247970930000, during place_inverted_u_yellow (a planned step). What I observed: base1's TF position had been within about 1.4 mm of its run-start pose (0.40278, -0.19857) through all three earlier seatings (0.0009 m after..."
+  },
+  {
+   "t_real": 852.68,
+   "t_video": 45.197,
+   "lane": "watchdog",
+   "kind": "verdict",
+   "label": "FAIL place_inverted_u_yellow",
+   "detail": "Findings from fires still_u_orange_post2 (1793650246372029700), still_line_green_post (1793650246470944300) and still_u_brown_post3 (1793650246473964300), all within 0.1 s of each other during place_inverted_u_yellow. begin_step named u_orange, u_brown and line_green in object..."
+  },
+  {
+   "t_real": 857.899,
+   "t_video": 47.733,
+   "lane": "watchdog",
+   "kind": "verdict",
+   "label": "FAIL place_inverted_u_yellow",
+   "detail": "Finding from fire slip_inverted_u_yellow at trigger_wall_ns 1793650247426721300, during place_inverted_u_yellow, before release_skill started (1793650250636743200). What I observed: the tcp-frame offset of inverted_u_yellow had held at (-0.003, 0.000, 0.084) m from grasp confi..."
+  },
+  {
+   "t_real": 862.771,
+   "t_video": 50.378,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: fire",
+   "detail": "wait_for_event returned after 0.00 s, wake=monitor_fire (still_line_green_post on line_green)"
+  },
+  {
+   "t_real": 865.633,
+   "t_video": 50.855,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: end_step",
+   "detail": "wait_for_event returned after 0.00 s, wake=end_step (step place_inverted_u_yellow)"
+  },
+  {
+   "t_real": 890.897,
+   "t_video": 55.899,
+   "lane": "watchdog",
+   "kind": "verdict",
+   "label": "FAIL place_inverted_u_yellow",
+   "detail": "End_step check at place_inverted_u_yellow, inverted_u_yellow's milestone. The executor claimed failure, and I agree. What I observed: after release, inverted_u_yellow is at (0.4053, -0.1768, 0.0675). Against the live inverted_u_yellow_placement frame (0.4087, -0.1686, 0.0444),..."
+  },
+  {
+   "t_real": 892.219,
+   "t_video": 58.221,
+   "lane": "watchdog",
+   "kind": "look_frame",
+   "label": "frame 0006-f8e868bb",
+   "detail": "Final workspace look at run end: confirm the end-state (scattered assembly on base1, u_orange off the fixture), check whether the unlisted cube (obs-001) and flat panel (obs-002) are still present..."
+  },
+  {
+   "t_real": 892.29,
+   "t_video": 59.292,
+   "lane": "watchdog",
+   "kind": "look",
+   "label": "look() 0006-f8e868bb",
+   "detail": "Final workspace look at run end: confirm the end-state (scattered assembly on base1, u_orange off the fixture), check whether the unlisted cube (obs-001) and flat panel (obs-002) are still present so their observation status is current, and check for anything else unexpected."
+  },
+  {
+   "t_real": 907.368,
+   "t_video": 62.58,
+   "lane": "watchdog",
+   "kind": "observation",
+   "label": "observation",
+   "detail": "The unlisted flat beige panel (~0.44 x 0.09 m, lying on the bench at about world (0.23, -0.09) beside base1's +y edge) is no longer present in the final look 0006 (wall_ns 1793650351169). It arrived between look 0004 (1793649856147) and the border-monitor fire at 1793650095123..."
+  },
+  {
+   "t_real": 911.495,
+   "t_video": 63.267,
+   "lane": "watchdog",
+   "kind": "observation",
+   "label": "observation",
+   "detail": "The unlisted orange-red cube (~5 cm) is still at about world (0.09, -0.37) in the final look 0006 (wall_ns 1793650351169). It has not moved since first seen; its ROI observation monitor did not trigger. It first appeared between look 0002 (1793649733435) and look 0003 (1793649..."
+  },
+  {
+   "t_real": 948.869,
+   "t_video": 69.496,
+   "lane": "watchdog",
+   "kind": "run_verdict",
+   "label": "FAIL run",
+   "detail": "This is the run's final end-state verdict: non_conformant. All 12 steps were on the expected process. There were no unplanned and no reopened steps. The executor aborted after place_inverted_u_yellow, so no recovery was attempted. Timeline: the first nine steps checked out cle..."
+  }
+ ]
+}

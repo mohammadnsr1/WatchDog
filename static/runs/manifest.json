@@ -1,29 +1,28 @@
 {
- "note": "PLACEHOLDER manifest with two fake runs. paper_media/replay/cli.py web overwrites entries by run_id; delete the two demo entries and their JSON files once real runs are exported.",
  "runs": [
   {
-   "run_id": "demo_s3_c2_t1",
-   "title": "[PLACEHOLDER] Demo run: injected fault caught by a monitor",
-   "subtitle": "Fake data for layout testing",
+   "run_id": "s3_c1_observation",
+   "title": "Unexpected objects in the cell",
+   "subtitle": "A foreign cube and a passing visitor; the WatchDog records both, the run stays conformant",
    "scenario": "S3",
-   "fault_class": 2,
+   "fault_class": 1,
    "assembly": "fmb_assembly_2",
    "trial": 1,
-   "video": null,
-   "poster": null,
-   "json": "static/runs/demo_s3_c2_t1.json"
+   "video": "static/runs/s3_c1_observation.mp4",
+   "poster": "static/runs/s3_c1_observation_poster.jpg",
+   "json": "static/runs/s3_c1_observation.json"
   },
   {
-   "run_id": "demo_s4_c4_t1",
-   "title": "[PLACEHOLDER] Demo run: executor monitors itself",
-   "subtitle": "Fake data for layout testing",
-   "scenario": "S4",
-   "fault_class": 4,
+   "run_id": "s3_natural_place_inverted_u_yellow",
+   "title": "A placement that disturbs the assembly",
+   "subtitle": "Five monitors fire on impact; the WatchDog returns non_conformant on the step and the run",
+   "scenario": "S3",
+   "fault_class": "Natural failure",
    "assembly": "fmb_assembly_2",
    "trial": 1,
-   "video": null,
-   "poster": null,
-   "json": "static/runs/demo_s4_c4_t1.json"
+   "video": "static/runs/s3_natural_place_inverted_u_yellow.mp4",
+   "poster": "static/runs/s3_natural_place_inverted_u_yellow_poster.jpg",
+   "json": "static/runs/s3_natural_place_inverted_u_yellow.json"
   }
  ]
 }
