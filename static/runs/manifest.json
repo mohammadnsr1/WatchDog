@@ -1,6 +1,45 @@
 {
  "runs": [
   {
+   "run_id": "s1_c1_conformance_u_brown",
+   "title": "Conformance: pick and place of u_brown",
+   "subtitle": "Library monitors armed before and during the step; nothing fires and the part is seated",
+   "agents": "WatchDog: Claude Sonnet 5, low effort  \u00b7  Executor: Claude Sonnet 5, low effort",
+   "scenario": "S1",
+   "fault_class": 1,
+   "assembly": "fmb_assembly_2",
+   "trial": 1,
+   "video": "static/runs/s1_c1_conformance_u_brown.mp4",
+   "poster": "static/runs/s1_c1_conformance_u_brown_poster.jpg",
+   "json": "static/runs/s1_c1_conformance_u_brown.json"
+  },
+  {
+   "run_id": "s1_natural_place_line_green",
+   "title": "A slipping part and a failed retry",
+   "subtitle": "Slip and stationarity monitors fire; the WatchDog returns non_conformant and the run aborts",
+   "agents": "WatchDog: Claude Sonnet 5, low effort  \u00b7  Executor: Claude Sonnet 5, low effort",
+   "scenario": "S1",
+   "fault_class": "Natural failure",
+   "assembly": "fmb_assembly_2",
+   "trial": 1,
+   "video": "static/runs/s1_natural_place_line_green.mp4",
+   "poster": "static/runs/s1_natural_place_line_green_poster.jpg",
+   "json": "static/runs/s1_natural_place_line_green.json"
+  },
+  {
+   "run_id": "s2_c1_conformant_run",
+   "title": "A conformant run, two intruders missed",
+   "subtitle": "All four parts placed cleanly; the WatchDog never records the cube or the passing box",
+   "agents": "WatchDog: Claude Sonnet 5, low effort  \u00b7  Executor: Claude Sonnet 5, low effort",
+   "scenario": "S2",
+   "fault_class": 1,
+   "assembly": "fmb_assembly_2",
+   "trial": 1,
+   "video": "static/runs/s2_c1_conformant_run.mp4",
+   "poster": "static/runs/s2_c1_conformant_run_poster.jpg",
+   "json": "static/runs/s2_c1_conformant_run.json"
+  },
+  {
    "run_id": "s3_c1_observation",
    "title": "Unexpected objects in the cell",
    "subtitle": "A foreign cube and a passing visitor; the WatchDog records both, the run stays conformant",

@@ -1,0 +1,553 @@
+{
+ "run_id": "s1_natural_place_line_green",
+ "title": "A slipping part and a failed retry",
+ "subtitle": "Slip and stationarity monitors fire; the WatchDog returns non_conformant and the run aborts",
+ "agents": "WatchDog: Claude Sonnet 5, low effort  \u00b7  Executor: Claude Sonnet 5, low effort",
+ "scenario": "S1",
+ "fault_class": "Natural failure",
+ "assembly": "fmb_assembly_2",
+ "trial": 1,
+ "video_duration_s": 105.346,
+ "real_window_s": [
+  388.0,
+  770.0
+ ],
+ "events": [
+  {
+   "t_real": 389.007,
+   "t_video": 0.126,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 1.19 s, wake=skill_end"
+  },
+  {
+   "t_real": 391.948,
+   "t_video": 1.368,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step place_approach_line_green",
+   "detail": "end_step place_approach_line_green claimed success"
+  },
+  {
+   "t_real": 391.948,
+   "t_video": 1.368,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "place_approach_line_green: success",
+   "detail": "Executor claims success for place_approach_line_green. {\"motion_status\": \"SUCCESS\", \"tcp_pose\": {\"x\": 0.40416908817092717, \"y\": -0.19880587249564768, \"z\": 0.18831858228947657}}"
+  },
+  {
+   "t_real": 391.949,
+   "t_video": 2.869,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: end_step",
+   "detail": "wait_for_event returned after 1.80 s, wake=end_step (step place_approach_line_green)"
+  },
+  {
+   "t_real": 392.598,
+   "t_video": 3.519,
+   "lane": "bus",
+   "kind": "begin_step",
+   "label": "begin_step place_line_green",
+   "detail": "begin_step place_line_green"
+  },
+  {
+   "t_real": 392.598,
+   "t_video": 3.519,
+   "lane": "executor",
+   "kind": "step_start",
+   "label": "begin place_line_green",
+   "detail": "Step place_line_green announced. Objects: line_green, u_brown, u_orange."
+  },
+  {
+   "t_real": 395.841,
+   "t_video": 4.23,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: arming",
+   "detail": "wait_for_event returned after 0.00 s, wake=begin_step (step place_line_green)"
+  },
+  {
+   "t_real": 398.608,
+   "t_video": 4.576,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 404.389,
+   "t_video": 5.299,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 4.23 s, wake=skill_start"
+  },
+  {
+   "t_real": 408.387,
+   "t_video": 8.174,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE mon_45e37930b2e9 line_green",
+   "detail": "Monitor mon_45e37930b2e9 fired on line_green: value 0.02023681319469397 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793658990798011381"
+  },
+  {
+   "t_real": 408.388,
+   "t_video": 8.174,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm mon_45e37930b2e9",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 408.388,
+   "t_video": 8.174,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: fire",
+   "detail": "wait_for_event returned after 2.90 s, wake=monitor_fire (mon_45e37930b2e9 on line_green)"
+  },
+  {
+   "t_real": 462.7,
+   "t_video": 27.698,
+   "lane": "watchdog",
+   "kind": "frames_captured",
+   "label": "captured 19 frames",
+   "detail": "line_green_slip_fire"
+  },
+  {
+   "t_real": 472.726,
+   "t_video": 31.326,
+   "lane": "watchdog",
+   "kind": "verdict",
+   "label": "FAIL place_line_green",
+   "detail": "relative_frame monitor mon_45e37930b2e9 (tcp vs line_green, armed at grasp close with reference translation 0.07602m) fired at trigger_wall_ns 1793658990798011400 with triggering_value 0.02024 against threshold 0.02 (departure from the armed reference distance). I pulled get_e..."
+  },
+  {
+   "t_real": 475.045,
+   "t_video": 32.491,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_end"
+  },
+  {
+   "t_real": 478.092,
+   "t_video": 32.872,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 479.451,
+   "t_video": 33.041,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_end"
+  },
+  {
+   "t_real": 495.751,
+   "t_video": 35.954,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step place_line_green",
+   "detail": "end_step place_line_green claimed failure"
+  },
+  {
+   "t_real": 495.751,
+   "t_video": 35.954,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "place_line_green: failure",
+   "detail": "Executor claims failure for place_line_green. {\"final_position\": {\"x\": 0.40358009934425354, \"y\": -0.19723953306674957, \"z\": 0.07423669099807739}, \"placement_frame_position\": {\"x\": 0.4041304886341095, \"y\": -0.19877992570400238, \"z\": 0.0523788183927536}, \"position_..."
+  },
+  {
+   "t_real": 495.754,
+   "t_video": 37.457,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: end_step",
+   "detail": "wait_for_event returned after 15.02 s, wake=end_step (step place_line_green)"
+  },
+  {
+   "t_real": 498.545,
+   "t_video": 38.678,
+   "lane": "bus",
+   "kind": "begin_step",
+   "label": "begin_step pick_line_green_retry",
+   "detail": "begin_step pick_line_green_retry"
+  },
+  {
+   "t_real": 498.545,
+   "t_video": 38.678,
+   "lane": "executor",
+   "kind": "step_start",
+   "label": "begin pick_line_green_retry",
+   "detail": "Step pick_line_green_retry announced. Objects: line_green."
+  },
+  {
+   "t_real": 512.829,
+   "t_video": 42.839,
+   "lane": "watchdog",
+   "kind": "verdict",
+   "label": "FAIL place_line_green",
+   "detail": "At end_step the executor itself reported claimed_outcome=failure with position_error_m=0.0219 (tolerance 0.015) and orientation_error_deg=25 (tolerance 10), and I independently confirmed via query_snapshot: line_green at (0.40358,-0.19724,0.07424) vs line_green_placement (0.40..."
+  },
+  {
+   "t_real": 517.871,
+   "t_video": 44.344,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 522.528,
+   "t_video": 44.926,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 1.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 523.661,
+   "t_video": 45.068,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_end"
+  },
+  {
+   "t_real": 527.38,
+   "t_video": 45.533,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 2.30 s, wake=skill_start"
+  },
+  {
+   "t_real": 532.539,
+   "t_video": 46.178,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 4.01 s, wake=skill_end"
+  },
+  {
+   "t_real": 533.923,
+   "t_video": 46.35,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.27 s, wake=skill_start"
+  },
+  {
+   "t_real": 543.939,
+   "t_video": 47.603,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 8.96 s, wake=skill_end"
+  },
+  {
+   "t_real": 546.513,
+   "t_video": 47.924,
+   "lane": "monitors",
+   "kind": "arm",
+   "label": "arm relative_frame line_green",
+   "detail": "Armed mon_fccb8146b4c2 (relative_frame) on line_green. Threshold 0.02 le, source raw_spec.tolerances.grasp_slip_tolerance_m. Purpose clause. Bound parameters: {\"parent_frame\": \"tcp\", \"child_frame\": \"line_green\", \"max_delta_m\": 0.02}"
+  },
+  {
+   "t_real": 547.848,
+   "t_video": 48.091,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: phase",
+   "detail": "wait_for_event returned after 0.00 s, wake=phase (step pick_line_green_retry)"
+  },
+  {
+   "t_real": 550.537,
+   "t_video": 50.803,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE mon_45c92dd02383 base1",
+   "detail": "Monitor mon_45c92dd02383 fired on base1: value 0.02378518371878909 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793659132948182671"
+  },
+  {
+   "t_real": 550.538,
+   "t_video": 50.803,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm mon_45c92dd02383",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 550.538,
+   "t_video": 50.803,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE mon_fca6bae0bf67 u_brown",
+   "detail": "Monitor mon_fca6bae0bf67 fired on u_brown: value 0.021502209995363 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793659132948803588"
+  },
+  {
+   "t_real": 550.538,
+   "t_video": 52.303,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm mon_fca6bae0bf67",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 550.538,
+   "t_video": 52.303,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE mon_b1b17e87c7a5 u_orange",
+   "detail": "Monitor mon_b1b17e87c7a5 fired on u_orange: value 0.023794631200316257 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793659132949001877"
+  },
+  {
+   "t_real": 550.538,
+   "t_video": 52.304,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm mon_b1b17e87c7a5",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 551.018,
+   "t_video": 52.784,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: fire",
+   "detail": "wait_for_event returned after 0.00 s, wake=monitor_fire (mon_45c92dd02383 on base1)"
+  },
+  {
+   "t_real": 553.388,
+   "t_video": 54.409,
+   "lane": "monitors",
+   "kind": "fire",
+   "label": "FIRE mon_fccb8146b4c2 line_green",
+   "detail": "Monitor mon_fccb8146b4c2 fired on line_green: value 0.020046857252720488 vs threshold 0.02. Purpose clause. Action flag. trigger_wall_ns 1793659135798531742"
+  },
+  {
+   "t_real": 553.388,
+   "t_video": 55.91,
+   "lane": "monitors",
+   "kind": "disarm",
+   "label": "disarm mon_fccb8146b4c2",
+   "detail": "reason fired"
+  },
+  {
+   "t_real": 571.607,
+   "t_video": 61.437,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step pick_line_green_retry",
+   "detail": "end_step pick_line_green_retry claimed success"
+  },
+  {
+   "t_real": 571.607,
+   "t_video": 61.437,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "pick_line_green_retry: success",
+   "detail": "Executor claims success for pick_line_green_retry. {\"grasp_contact\": \"force_threshold\", \"final_width_m\": 0.02581334693186016, \"expected_width_m\": 0.03, \"lift_height_m\": 0.3, \"final_tcp_z\": 0.4429948404208741}"
+  },
+  {
+   "t_real": 572.161,
+   "t_video": 61.991,
+   "lane": "watchdog",
+   "kind": "look_frame",
+   "label": "frame 0003-9f5f6d4d",
+   "detail": "Simultaneous large stationarity fires on base1, u_brown, and u_orange during line_green re-grasp lift -- confirming visually whether a collision/flinging event occurred."
+  },
+  {
+   "t_real": 572.225,
+   "t_video": 63.555,
+   "lane": "watchdog",
+   "kind": "look",
+   "label": "look() 0003-9f5f6d4d",
+   "detail": "Simultaneous large stationarity fires on base1, u_brown, and u_orange during line_green re-grasp lift -- confirming visually whether a collision/flinging event occurred."
+  },
+  {
+   "t_real": 572.357,
+   "t_video": 63.686,
+   "lane": "bus",
+   "kind": "begin_step",
+   "label": "begin_step place_approach_line_green_retry",
+   "detail": "begin_step place_approach_line_green_retry"
+  },
+  {
+   "t_real": 572.357,
+   "t_video": 63.686,
+   "lane": "executor",
+   "kind": "step_start",
+   "label": "begin place_approach_line_green_retry",
+   "detail": "Step place_approach_line_green_retry announced. Objects: line_green, u_brown, u_orange."
+  },
+  {
+   "t_real": 584.111,
+   "t_video": 65.86,
+   "lane": "watchdog",
+   "kind": "frames_captured",
+   "label": "captured 18 frames",
+   "detail": "collision_event_pick_line_green_retry"
+  },
+  {
+   "t_real": 597.702,
+   "t_video": 69.934,
+   "lane": "watchdog",
+   "kind": "verdict",
+   "label": "FAIL pick_line_green_retry",
+   "detail": "Three stationarity monitors (mon_45c92dd02383 on base1, mon_fca6bae0bf67 on u_brown, mon_b1b17e87c7a5 on u_orange) fired within 1ms of each other at trigger_wall_ns ~1793659132948-949e9, each just over its 0.02m epsilon (0.0238, 0.0215, 0.0238). I pulled get_evidence on object..."
+  },
+  {
+   "t_real": 600.026,
+   "t_video": 71.099,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: fire",
+   "detail": "wait_for_event returned after 0.00 s, wake=monitor_fire (mon_fccb8146b4c2 on line_green)"
+  },
+  {
+   "t_real": 608.544,
+   "t_video": 74.539,
+   "lane": "watchdog",
+   "kind": "verdict",
+   "label": "FAIL pick_line_green_retry",
+   "detail": "mon_fccb8146b4c2 (tcp vs line_green, re-armed at the retry grasp close) fired at trigger_wall_ns 1793659135798531800 with triggering_value 0.02005 against threshold 0.02, immediately following the collision/flinging event just recorded under this same step_id (base1/u_brown/u_..."
+  },
+  {
+   "t_real": 610.19,
+   "t_video": 75.62,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 625.325,
+   "t_video": 79.886,
+   "lane": "watchdog",
+   "kind": "look_frame",
+   "label": "frame 0004-5c4282bd",
+   "detail": "Post-collision check: query_snapshot shows u_brown at z=-0.75 (apparently fell through/off the table) and u_orange/line_green scattered off base1 -- confirming workspace state visually."
+  },
+  {
+   "t_real": 625.388,
+   "t_video": 79.949,
+   "lane": "watchdog",
+   "kind": "look",
+   "label": "look() 0004-5c4282bd",
+   "detail": "Post-collision check: query_snapshot shows u_brown at z=-0.75 (apparently fell through/off the table) and u_orange/line_green scattered off base1 -- confirming workspace state visually."
+  },
+  {
+   "t_real": 639.762,
+   "t_video": 82.566,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 645.965,
+   "t_video": 83.341,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 4.73 s, wake=skill_start"
+  },
+  {
+   "t_real": 647.042,
+   "t_video": 83.476,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_end"
+  },
+  {
+   "t_real": 648.995,
+   "t_video": 83.72,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 658.794,
+   "t_video": 87.32,
+   "lane": "bus",
+   "kind": "end_step",
+   "label": "end_step place_approach_line_green_retry",
+   "detail": "end_step place_approach_line_green_retry claimed failure"
+  },
+  {
+   "t_real": 658.794,
+   "t_video": 87.32,
+   "lane": "executor",
+   "kind": "step_claim",
+   "label": "place_approach_line_green_retry: failure",
+   "detail": "Executor claims failure for place_approach_line_green_retry. {\"fault\": \"scene integrity lost\", \"u_brown_position\": {\"x\": 0.5120947957038879, \"y\": -2.9538145065307617, \"z\": -0.7541217803955078}, \"u_orange_position\": {\"x\": 0.2914203405380249, \"y\": -0.46371161937713623, \"z\": 0.03..."
+  },
+  {
+   "t_real": 658.797,
+   "t_video": 87.323,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: end_step",
+   "detail": "wait_for_event returned after 8.31 s, wake=end_step (step place_approach_line_green_retry)"
+  },
+  {
+   "t_real": 664.69,
+   "t_video": 88.932,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_start",
+   "detail": "wait_for_event returned after 0.00 s, wake=skill_start"
+  },
+  {
+   "t_real": 670.941,
+   "t_video": 89.713,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: skill_end",
+   "detail": "wait_for_event returned after 4.92 s, wake=skill_end"
+  },
+  {
+   "t_real": 678.309,
+   "t_video": 90.634,
+   "lane": "bus",
+   "kind": "run_ended",
+   "label": "run_ended aborted",
+   "detail": "Unrecoverable scene fault during recovery attempt after line_green failed to seat. u_brown and u_orange, both seated earlier and verified conformant, were found catastrophically displaced (u_brown..."
+  },
+  {
+   "t_real": 678.309,
+   "t_video": 90.634,
+   "lane": "executor",
+   "kind": "run_end",
+   "label": "run ended: aborted",
+   "detail": "Unrecoverable scene fault during recovery attempt after line_green failed to seat. u_brown and u_orange, both seated earlier and verified conformant, were found catastrophically displaced (u_brown at z=-0.75, far off the bench) and base1's placement frames had shifted tens of..."
+  },
+  {
+   "t_real": 678.31,
+   "t_video": 90.635,
+   "lane": "watchdog",
+   "kind": "wake",
+   "label": "wake: run_ended",
+   "detail": "wait_for_event returned after 5.67 s, wake=run_ended"
+  },
+  {
+   "t_real": 763.743,
+   "t_video": 103.689,
+   "lane": "watchdog",
+   "kind": "run_verdict",
+   "label": "FAIL run",
+   "detail": "This is the run's final end-state verdict, covering steps pick_u_brown through place_approach_line_green_retry. For u_brown and u_orange I independently measured every clause due at their place steps (place_u_brown, place_u_orange) against query_snapshot/get_evidence and found..."
+  }
+ ]
+}
