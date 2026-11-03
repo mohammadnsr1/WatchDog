@@ -71,9 +71,30 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
+          <!-- Numbers from WatchDog_V1 analysis/out/table1.csv and table_observation.csv. -->
           <p>
-            [PLACEHOLDER] Abstract paragraph. State the problem, the WatchDog architecture, the
-            evaluation, and the main result in plain language.
+            Language-model agents can now drive robots from a task description, but the agent that
+            executes a task is a poor judge of whether it executed it correctly. We present WatchDog, an
+            architecture in which a second, independent agent supervises a robot executor without any
+            means to move the robot. The two agents run as separate sessions with disjoint tools: the
+            executor commands a UR5e arm through motion, gripper and scene servers, while the WatchDog
+            reads poses, joint states and the cell camera, arms deterministic monitors whose thresholds
+            must trace to a part registry, is woken over an event bus when a monitor fires, and records a
+            conformance verdict for every step and for the run. An orchestrator gates each step so that
+            monitors are armed before the arm moves.
+          </p>
+          <p>
+            We evaluate WatchDog in a simulated assembly cell (ROS&nbsp;2, MoveIt, Isaac Sim) across four
+            scenarios: library monitors (S1), library and agent-authored monitors (S2), authored monitors
+            only (S3), and the executor monitoring itself with no WatchDog (S4). Faults range from slips
+            and mis-seated parts to a corrupted specification, and every run also places foreign objects
+            and passing visitors in the scene. With Claude Sonnet&nbsp;5 at low effort for both agents
+            (23 runs per scenario), the WatchDog returned the correct run verdict in 82.6&ndash;95.7% of
+            runs and caught 75.8&ndash;100% of faults with no false alarms, against 78.3%, 59.2% and a 20%
+            false-alarm rate when the executor monitored itself. Scene awareness was the weak point: the
+            baseline agents recorded none of the 78 scored scene events. In a smaller capability study
+            with Claude Opus&nbsp;5.5, detection rose to 9 of 10 as a WatchDog at medium effort (S3) and
+            9 of 9 when the executor monitored itself (S4).
           </p>
         </div>
       </div>
