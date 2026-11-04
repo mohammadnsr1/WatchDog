@@ -78,6 +78,9 @@ body {
 }
 
 .explorer-intro { color: var(--muted); margin-bottom: 1.25rem; }
+/* Bulma pulls a subtitle up under a title; keep the run title and subtitle apart. */
+#run-title + #run-subtitle { margin-top: 0; }
+#run-title, #run-subtitle { line-height: 1.35; }
 .explorer-filters .label { font-size: 0.9rem; }
 
 .video-toolbar {
