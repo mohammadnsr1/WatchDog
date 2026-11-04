@@ -1,4 +1,4 @@
-/* WatchDog project page: Run Explorer, media placeholders, BibTeX copy.
+/* WatchDog project page: Run Explorer, figure placeholders, result tabs, BibTeX copy.
  * Dependency free. Every URL is relative so the page works under /WatchDog/.
  */
 (function () {
@@ -6,19 +6,21 @@
 
   var MANIFEST_URL = "static/runs/manifest.json";
 
-  // Option text for the scenario dropdown. [PLACEHOLDER] entries need the paper's wording.
+  // Option text for the scenario dropdown, in the paper's wording.
   var SCENARIO_TEXT = {
-    S1: "S1: library monitors",
-    S2: "S2: library + authored monitors",
-    S3: "S3: authored monitors",
-    S4: "S4: executor self monitoring, no WatchDog"
+    S1: "S1: library monitors only",
+    S2: "S2: library or authored monitors",
+    S3: "S3: authored monitors only",
+    S4: "S4: no WatchDog, executor monitors itself"
   };
+  // WatchDog wakes hidden from the event log unless "Show all WatchDog wakes" is ticked.
+  var NOISY_WAKE = /^wake:\s*(skill_start|skill_end|phase)\b/;
   var LANE_NAME = { executor: "Executor", bus: "Bus", monitors: "Monitor", watchdog: "WatchDog" };
 
   function $(id) { return document.getElementById(id); }
 
   // ------------------------------------------------------------------
-  // Missing images and videos become a labelled box, never a blank area
+  // Missing figures become a labelled box, never a blank area or a dead link
   // ------------------------------------------------------------------
 
   function missingBox(text) {
@@ -32,24 +34,58 @@
     var imgs = document.querySelectorAll("img.placeholder-img");
     Array.prototype.forEach.call(imgs, function (img) {
       var swap = function () {
-        if (img.parentNode) { img.parentNode.replaceChild(missingBox(img.getAttribute("data-placeholder")), img); }
+        // Figures are wrapped in a link to the full size image; replace the link too.
+        var target = img.parentNode && img.parentNode.tagName === "A" ? img.parentNode : img;
+        if (target.parentNode) { target.parentNode.replaceChild(missingBox(img.getAttribute("data-placeholder")), target); }
       };
       if (img.complete && img.naturalWidth === 0) { swap(); } else { img.addEventListener("error", swap); }
     });
-    var frames = document.querySelectorAll(".media-frame");
-    Array.prototype.forEach.call(frames, function (frame) {
-      var video = frame.querySelector("video");
-      if (!video) { return; }
-      var swapped = false;
-      var swap = function () {
-        if (swapped) { return; }
-        swapped = true;
-        frame.replaceChild(missingBox(frame.getAttribute("data-placeholder")), video);
-      };
-      var sources = video.querySelectorAll("source");
-      if (sources.length) { sources[sources.length - 1].addEventListener("error", swap); }
-      video.addEventListener("error", swap);
-      if (video.networkState === 3) { swap(); }  // NETWORK_NO_SOURCE
+  }
+
+  // ------------------------------------------------------------------
+  // Result tabs. Without JavaScript all four tables stay stacked.
+  // ------------------------------------------------------------------
+
+  function initResultTabs() {
+    var tabs = $("results-tabs");
+    if (!tabs) { return; }
+    var links = tabs.querySelectorAll("a[data-panel]");
+    var show = function (id) {
+      Array.prototype.forEach.call(links, function (a) {
+        var on = a.getAttribute("data-panel") === id;
+        a.parentNode.classList.toggle("is-active", on);
+        a.setAttribute("aria-selected", on ? "true" : "false");
+        var panel = $(a.getAttribute("data-panel"));
+        if (panel) { panel.classList.toggle("is-hidden", !on); }
+      });
+    };
+    Array.prototype.forEach.call(links, function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        show(a.getAttribute("data-panel"));
+      });
+    });
+    tabs.classList.remove("is-hidden");
+    var fromHash = location.hash && tabs.querySelector("a[data-panel='" + location.hash.slice(1) + "']");
+    show(fromHash ? location.hash.slice(1) : links[0].getAttribute("data-panel"));
+  }
+
+  // ------------------------------------------------------------------
+  // Theater view for the Run Explorer video
+  // ------------------------------------------------------------------
+
+  function initTheater() {
+    var btn = $("theater-btn");
+    var wrap = $("video-wrap");
+    if (!btn || !wrap) { return; }
+    btn.addEventListener("click", function () {
+      var on = !wrap.classList.contains("is-theater");
+      wrap.classList.toggle("is-theater", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.classList.toggle("is-dark", on);
+      btn.querySelector("i").className = on ? "fas fa-compress" : "fas fa-expand";
+      btn.querySelector("span:last-child").textContent = on ? "Exit theater" : "Theater";
+      wrap.scrollIntoView({ block: "center", behavior: "smooth" });
     });
   }
 
@@ -105,7 +141,12 @@
       text: function (v) { return "Trial " + v; } }
   ];
 
-  var state = { runs: [], sel: {}, run: null, events: [], current: -1, selected: -1, hasVideo: false };
+  // items[i] is the list row for events[i], or null when that event is filtered out.
+  var state = { runs: [], sel: {}, run: null, events: [], items: [], current: -1, selected: -1, hasVideo: false, showAllWakes: false };
+
+  function isVisible(ev) {
+    return state.showAllWakes || !(ev.kind === "wake" && NOISY_WAKE.test(ev.label || ""));
+  }
 
   function message(text, isError) {
     var box = $("explorer-message");
@@ -206,6 +247,8 @@
   function renderEvents() {
     var list = $("event-list");
     list.textContent = "";
+    state.items = [];
+    state.current = -1;
     if (!state.events.length) {
       var li = document.createElement("li");
       li.className = "empty";
@@ -214,6 +257,7 @@
       return;
     }
     state.events.forEach(function (ev, i) {
+      if (!isVisible(ev)) { state.items.push(null); return; }
       var li = document.createElement("li");
       li.setAttribute("data-index", String(i));
       li.className = "kind-" + String(ev.kind || "");
@@ -227,20 +271,23 @@
       lab.title = ev.label || "";
       var tm = document.createElement("span");
       tm.className = "ev-time";
-      tm.textContent = fmt(ev.t_real);
-      tm.title = "real session time";
+      tm.textContent = "video " + fmt(ev.t_video) + ", real " + fmt(ev.t_real);
+      tm.title = "video time, real session time";
       li.appendChild(chip);
       li.appendChild(lab);
       li.appendChild(tm);
       li.addEventListener("click", function () { selectEvent(i, true); });
+      if (i === state.selected) { li.classList.add("is-selected"); }
       list.appendChild(li);
+      state.items.push(li);
     });
+    onTimeUpdate();
   }
 
   function selectEvent(i, seek) {
     var ev = state.events[i];
     if (!ev) { return; }
-    var items = $("event-list").children;
+    var items = state.items;
     if (state.selected >= 0 && items[state.selected]) { items[state.selected].classList.remove("is-selected"); }
     state.selected = i;
     if (items[i]) { items[i].classList.add("is-selected"); }
@@ -267,11 +314,12 @@
   function onTimeUpdate() {
     var t = $("run-video").currentTime + 0.05;
     var idx = -1;
+    // Highlight the latest visible event at or before the playhead.
     for (var i = 0; i < state.events.length; i++) {
-      if (state.events[i].t_video <= t) { idx = i; } else { break; }
+      if (state.events[i].t_video <= t) { if (state.items[i]) { idx = i; } } else { break; }
     }
     if (idx === state.current) { return; }
-    var items = $("event-list").children;
+    var items = state.items;
     if (state.current >= 0 && items[state.current]) { items[state.current].classList.remove("is-current"); }
     state.current = idx;
     if (idx >= 0 && items[idx]) {
@@ -334,6 +382,14 @@
     var video = $("run-video");
     video.addEventListener("timeupdate", onTimeUpdate);
     video.addEventListener("error", onVideoError);
+    var wakes = $("show-all-wakes");
+    if (wakes) {
+      wakes.checked = false;
+      wakes.addEventListener("change", function () {
+        state.showAllWakes = wakes.checked;
+        renderEvents();
+      });
+    }
     DIMS.forEach(function (d) {
       $(d.el).addEventListener("change", function () { onSelectChange(d); });
     });
@@ -364,7 +420,9 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     initPlaceholders();
+    initResultTabs();
     initCopy();
+    initTheater();
     initExplorer();
   });
 }());

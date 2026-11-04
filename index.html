@@ -20,12 +20,11 @@
       <div class="has-text-centered">
         <h1 class="title is-2 publication-title">WatchDog: Physically Grounded Conformance Monitoring for Agentic Robotic Systems</h1>
         <div class="is-size-5 publication-authors">
-          <span class="author-block"><a href="#">[PLACEHOLDER] Author One</a><sup>1</sup>,</span>
-          <span class="author-block"><a href="#">[PLACEHOLDER] Author Two</a><sup>1</sup>,</span>
-          <span class="author-block"><a href="#">[PLACEHOLDER] Author Three</a><sup>1</sup></span>
+          <span class="author-block"><a href="#">Mohammad Nasr</a>,</span>
+          <span class="author-block"><a href="#">Binil Starly</a></span>
         </div>
         <div class="is-size-5 publication-authors">
-          <span class="author-block"><sup>1</sup>School of Manufacturing and Systems, Arizona State University</span>
+          <span class="author-block">School of Manufacturing Systems and Networks, Arizona State University</span>
         </div>
         <div class="is-size-6 publication-venue">[PLACEHOLDER] Venue and year</div>
 
@@ -48,54 +47,65 @@
   </div>
 </section>
 
-<!-- 2. Teaser -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="media-frame" data-placeholder="[PLACEHOLDER] static/videos/teaser.mp4">
-        <video id="teaser" autoplay muted loop playsinline width="100%">
-          <source src="static/videos/teaser.mp4" type="video/mp4">
-        </video>
-      </div>
-      <h2 class="subtitle has-text-centered">
-        [PLACEHOLDER] One sentence that says what the teaser video shows.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<!-- 3. Abstract -->
+<!-- 2. Abstract -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- Numbers from WatchDog_V1 analysis/out/table1.csv and table_observation.csv. -->
           <p>
-            Language-model agents can now drive robots from a task description, but the agent that
-            executes a task is a poor judge of whether it executed it correctly. We present WatchDog, an
-            architecture in which a second, independent agent supervises a robot executor without any
-            means to move the robot. The two agents run as separate sessions with disjoint tools: the
-            executor commands a UR5e arm through motion, gripper and scene servers, while the WatchDog
-            reads poses, joint states and the cell camera, arms deterministic monitors whose thresholds
-            must trace to a part registry, is woken over an event bus when a monitor fires, and records a
-            conformance verdict for every step and for the run. An orchestrator gates each step so that
-            monitors are armed before the arm moves.
+            Agentic robotic systems built on language and vision language models now plan and execute
+            long horizon manipulation tasks, but none is fully reliable. A single agent that plans, acts,
+            and verifies can only trust its own controller's report of success or check its work after the
+            damage is done, and a gap in its reasoning propagates into the checks it writes for itself. We
+            present WatchDog, an independent supervisory agent that runs in parallel with the executing
+            agent, with its own sensing, tools, and duty cycle. WatchDog arms monitors from a small library
+            of primitives or writes new ones, binds each to a clause of a task contract, and judges
+            conformance from multimodal physical evidence rather than from what the executor reports.
           </p>
           <p>
-            We evaluate WatchDog in a simulated assembly cell (ROS&nbsp;2, MoveIt, Isaac Sim) across four
-            scenarios: library monitors (S1), library and agent-authored monitors (S2), authored monitors
-            only (S3), and the executor monitoring itself with no WatchDog (S4). Faults range from slips
-            and mis-seated parts to a corrupted specification, and every run also places foreign objects
-            and passing visitors in the scene. With Claude Sonnet&nbsp;5 at low effort for both agents
-            (23 runs per scenario), the WatchDog returned the correct run verdict in 82.6&ndash;95.7% of
-            runs and caught 75.8&ndash;100% of faults with no false alarms, against 78.3%, 59.2% and a 20%
-            false-alarm rate when the executor monitored itself. Scene awareness was the weak point: the
-            baseline agents recorded none of the 78 scored scene events. In a smaller capability study
-            with Claude Opus&nbsp;5.5, detection rose to 9 of 10 as a WatchDog at medium effort (S3) and
-            9 of 9 when the executor monitored itself (S4).
+            We evaluate it in a simulated robotic assembly cell over 108 scored runs spanning four
+            monitoring arrangements and four violation classes. A separate WatchDog arms over 90% of the
+            checks a task requires, against 66.4% when the executor monitors itself. When the executor's
+            own specification is wrong, a separate agent catches the violation in 9 of 9 runs against 1 of
+            3 without one. Raising the monitoring model and its reasoning effort closes the coverage gap
+            but not the independence gap, and monitoring in parallel costs less wall clock time than
+            monitoring serially.
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Key findings -->
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Key findings</h2>
+    <div class="columns is-multiline findings">
+      <div class="column is-6">
+        <div class="finding-card">
+          <p class="finding-lead">A separate agent arms more of the task.</p>
+          <p>Arming coverage is 90.3 to 92.7% with WatchDog (S1 to S3), against 66.4% when the executor monitors itself (S4).</p>
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="finding-card">
+          <p class="finding-lead">Independence catches a wrong specification.</p>
+          <p>When the executor's specification is corrupted (Class 4), a separate WatchDog catches the violation at the step where it occurs in 9 of 9 runs, against 1 of 3 without one.</p>
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="finding-card">
+          <p class="finding-lead">A stronger model closes coverage, not independence.</p>
+          <p>Moving the monitor from Sonnet 5 low effort to Opus 5.5 medium effort raises self monitoring coverage to 99.8%, but its fault recall stays at 85.7% against 100% for a separate WatchDog.</p>
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="finding-card">
+          <p class="finding-lead">Parallel monitoring is faster.</p>
+          <p>The scenario with no WatchDog is the slowest: 609.3 s median run time against 517.3 s for S1, because the executor spends serially what the separate agent spends in parallel.</p>
         </div>
       </div>
     </div>
@@ -107,7 +117,9 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Overview</h2>
     <figure class="figure-block">
-      <img class="placeholder-img" src="static/images/teaser_figure.png" alt="Overview figure" data-placeholder="[PLACEHOLDER] static/images/teaser_figure.png">
+      <a href="static/images/teaser_figure.png" target="_blank" rel="noopener">
+        <img class="placeholder-img" src="static/images/teaser_figure.png" alt="Overview figure" data-placeholder="[PLACEHOLDER] static/images/teaser_figure.png">
+      </a>
       <figcaption>[PLACEHOLDER] Caption for the overview figure.</figcaption>
     </figure>
   </div>
@@ -118,8 +130,17 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Architecture</h2>
     <figure class="figure-block">
-      <img class="placeholder-img" src="static/images/architecture.png" alt="Architecture figure" data-placeholder="[PLACEHOLDER] static/images/architecture.png">
-      <figcaption>[PLACEHOLDER] Caption for the architecture figure: the executor, the WatchDog, their disjoint tools, and the shared event bus.</figcaption>
+      <a href="static/images/architecture.png" target="_blank" rel="noopener">
+        <img class="placeholder-img" src="static/images/architecture.png" alt="WatchDog system architecture: the executor and the WatchDog agent each call their own MCP server, with an orchestrator passing step synchronization signals between them" data-placeholder="static/images/architecture.png not found">
+      </a>
+      <figcaption>
+        System architecture. The task contract (instructions and requirements, such as tolerances) is sent
+        to both the executor and the WatchDog agent at the start of a step. Each agent reasons
+        independently and calls only its own MCP server: the executor's tools reach gripper, motion, and
+        scene control; WatchDog's tools reach monitor arming, monitor authoring, and evidence recording.
+        An orchestrator passes step synchronization signals between the two agents but holds no reasoning
+        role and calls neither agent's tools.
+      </figcaption>
     </figure>
   </div>
 </section>
@@ -129,14 +150,19 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">How it works</h2>
     <figure class="figure-block">
-      <img class="placeholder-img" src="static/images/runtime_cycle.png" alt="Runtime data flow" data-placeholder="[PLACEHOLDER] static/images/runtime_cycle.png">
+      <a href="static/images/runtime_cycle.png" target="_blank" rel="noopener">
+        <img class="placeholder-img" src="static/images/runtime_cycle.png" alt="Runtime data flow" data-placeholder="[PLACEHOLDER] static/images/runtime_cycle.png">
+      </a>
       <figcaption>[PLACEHOLDER] Data flow across four lanes: Executor Agent, ROS 2 Event Bus, Deterministic Monitors, WatchDog Agent.</figcaption>
     </figure>
     <div class="content has-text-justified">
       <p>
-        [PLACEHOLDER] WatchDog reasons only at wake points: when the executor announces a step,
-        when a deterministic monitor fires, when a step ends, and on timeout. Between wake points
-        the monitors watch the physical signals at sensor rate and the WatchDog agent costs nothing.
+        Before the executor may begin a step, the orchestrator waits for WatchDog to confirm its monitors
+        are armed. WatchDog arms monitors from a library of three families (relative frame, stationarity,
+        effort event) or writes new monitor code, and every monitor traces back to a clause of the task
+        contract, with thresholds taken from the instruction or the per object registry. Between wake
+        points WatchDog sits idle: it reasons only when a step is announced, a monitor fires, a step ends,
+        or a timeout occurs, never on a fixed polling interval.
       </p>
     </div>
   </div>
@@ -144,11 +170,11 @@
 
 <!-- 7. Run Explorer -->
 <section class="section" id="run-explorer">
-  <div class="container is-max-widescreen">
+  <div class="explorer-container">
     <h2 class="title is-3 has-text-centered">Run Explorer</h2>
     <p class="has-text-centered explorer-intro">
-      Pick a run. Click any event to jump the video there. Playback speed varies, so each event shows
-      both its video time and its real session time.
+      Pick a run, then click any event in the log to jump the video there. Playback speed varies, so each
+      event shows both its video time and its real session time.
     </p>
 
     <div class="columns is-multiline explorer-filters">
@@ -172,66 +198,188 @@
 
     <div id="explorer-message" class="notification is-light is-hidden" role="status"></div>
 
-    <div class="columns explorer-body" id="explorer-body">
-      <div class="column is-7">
-        <h3 class="title is-5" id="run-title">&nbsp;</h3>
-        <p class="subtitle is-6 mb-1" id="run-subtitle">&nbsp;</p>
-        <p class="is-size-7 has-text-grey mb-3" id="run-agents"></p>
-        <div class="video-wrap" id="video-wrap">
-          <video id="run-video" controls playsinline preload="metadata"></video>
-          <div class="video-placeholder is-hidden" id="video-placeholder">
-            <span>Video not available yet for this run.</span>
-          </div>
-        </div>
-        <div class="event-detail" id="event-detail">
-          <p class="has-text-grey">Select an event to see its details.</p>
+    <div class="explorer-body" id="explorer-body">
+      <h3 class="title is-5 mb-2" id="run-title">&nbsp;</h3>
+      <p class="subtitle is-6 mb-1" id="run-subtitle">&nbsp;</p>
+      <p class="is-size-7 has-text-grey mb-3" id="run-agents"></p>
+
+      <div class="video-toolbar">
+        <button class="button is-small is-dark" id="theater-btn" type="button" aria-pressed="true">
+          <span class="icon"><i class="fas fa-compress"></i></span><span>Exit theater</span>
+        </button>
+        <span class="video-hint">The video's own fullscreen button also works.</span>
+      </div>
+      <div class="video-wrap is-theater" id="video-wrap">
+        <video id="run-video" controls playsinline preload="metadata"></video>
+        <div class="video-placeholder is-hidden" id="video-placeholder">
+          <span>Video not available yet for this run.</span>
         </div>
       </div>
-      <div class="column is-5">
-        <div class="lane-legend">
-          <span class="chip lane-executor">Executor</span>
-          <span class="chip lane-bus">Bus</span>
-          <span class="chip lane-monitors">Monitor</span>
-          <span class="chip lane-watchdog">WatchDog</span>
+
+      <div class="explorer-panels">
+        <div class="explorer-detail-col">
+          <h4 class="panel-heading-small">Event details</h4>
+          <div class="event-detail" id="event-detail">
+            <p class="has-text-grey">Select an event to see its details.</p>
+          </div>
         </div>
-        <ol class="event-list" id="event-list" aria-label="Event log"></ol>
+        <div class="explorer-log-col">
+          <div class="log-toolbar">
+            <div class="lane-legend">
+              <span class="chip lane-executor">Executor</span>
+              <span class="chip lane-bus">Bus</span>
+              <span class="chip lane-monitors">Monitor</span>
+              <span class="chip lane-watchdog">WatchDog</span>
+            </div>
+            <label class="checkbox wake-toggle">
+              <input type="checkbox" id="show-all-wakes"> Show all WatchDog wakes
+            </label>
+          </div>
+          <ol class="event-list" id="event-list" aria-label="Event log"></ol>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 8. Results -->
-<section class="section">
+<section class="section" id="results">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Results</h2>
-    <!-- Table 1, transposed. Values copied from WatchDog_V1 analysis/out/table1.tex (last changed in commit 1810f00). -->
-    <div class="table-container">
-      <table class="table is-fullwidth is-striped is-narrow results-table">
-        <thead>
-          <tr><th>Metric</th><th>S1<br><span class="has-text-weight-normal">library</span></th><th>S2<br><span class="has-text-weight-normal">library + authored</span></th><th>S3<br><span class="has-text-weight-normal">authored</span></th><th>S4<br><span class="has-text-weight-normal">executor self monitoring</span></th></tr>
-        </thead>
-        <tbody>
-          <tr><th>Runs</th><td>23</td><td>23</td><td>23</td><td>23</td></tr>
-          <tr><th>Arming coverage</th><td>2296/2478 (92.7%)</td><td>2236/2414 (92.6%)</td><td>2370/2626 (90.3%)</td><td>1809/2726 (66.4%)</td></tr>
-          <tr><th>Grip coverage</th><td>169/174 (97.1%)</td><td>158/164 (96.3%)</td><td>107/178 (60.1%)</td><td>113/188 (60.1%)</td></tr>
-          <tr><th>Parameter accuracy</th><td>333/383 (86.9%)</td><td>334/350 (95.4%)</td><td>334/339 (98.5%)</td><td>233/240 (97.1%)</td></tr>
-          <tr><th>Verdict correct</th><td>22/23 (95.7%)</td><td>19/23 (82.6%)</td><td>22/23 (95.7%)</td><td>18/23 (78.3%)</td></tr>
-          <tr><th>Fault recall</th><td>33/36 (91.7%)</td><td>33/33 (100.0%)</td><td>25/33 (75.8%)</td><td>29/49 (59.2%)</td></tr>
-          <tr><th>Fault precision</th><td>33/37 (89.2%)</td><td>33/33 (100.0%)</td><td>25/26 (96.2%)</td><td>29/36 (80.6%)</td></tr>
-          <tr><th>Observation engagement</th><td>15/19 (78.9%)</td><td>10/18 (55.6%)</td><td>21/22 (95.5%)</td><td>21/22 (95.5%)</td></tr>
-          <tr><th>Observation detection</th><td>0/16 (0.0%)</td><td>0/18 (0.0%)</td><td>0/22 (0.0%)</td><td>0/22 (0.0%)</td></tr>
-          <tr><th>Observation false-fire fraction</th><td>0/0</td><td>3/3 (100.0%)</td><td>142/144 (98.6%)</td><td>10/10 (100.0%)</td></tr>
-          <tr><th>False alarm rate</th><td>0/9 (0.0%)</td><td>0/9 (0.0%)</td><td>0/13 (0.0%)</td><td>2/10 (20.0%)</td></tr>
-          <tr><th>Gate overhead fraction</th><td>0.29</td><td>0.24</td><td>0.34</td><td>&ndash;</td></tr>
-          <tr><th>Median run wall time (s)</th><td>517.28</td><td>513.35</td><td>594.49</td><td>609.27</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="has-text-centered has-text-grey">
-      Table 1. Baseline architecture: executor and WatchDog both Claude Sonnet 5 at low effort
-      (S4: executor only, no WatchDog). 23 runs per scenario (Class 1: 5, Class 2: 10, Class 3: 5, Class 4: 3).
-      Fractions are counts pooled over all runs of the scenario. &ndash;: S4 has no gates.
+    <p class="results-intro">
+      108 scored runs in Isaac Sim with ROS 2 Jazzy, MoveIt 2, a UR5e arm and an OnRobot RG2 gripper, on an
+      assembly from the FMB benchmark. Scenarios: S1, WatchDog arms library monitors only; S2, library or
+      authored monitors; S3, authored monitors only; S4, no WatchDog, the executor monitors itself. Classes:
+      1 clean, 2 nonconforming, 3 conforming with an unspecified extra step, 4 wrong executor specification.
     </p>
+
+    <div class="tabs is-boxed is-small results-tabs is-hidden" id="results-tabs" role="tablist">
+      <ul>
+        <li class="is-active"><a href="#table-1" role="tab" data-panel="table-1">Table 1. Baseline</a></li>
+        <li><a href="#table-2" role="tab" data-panel="table-2">Table 2. Independence</a></li>
+        <li><a href="#table-3" role="tab" data-panel="table-3">Table 3. Scene observation</a></li>
+        <li><a href="#table-4" role="tab" data-panel="table-4">Table 4. Model and effort</a></li>
+      </ul>
+    </div>
+
+    <!-- Table 1 -->
+    <div class="results-panel" id="table-1" role="tabpanel">
+      <h3 class="title is-6 table-title">Table 1. Baseline, Sonnet 5 at low reasoning effort for both agents, 23 runs per scenario.</h3>
+      <div class="table-scroll">
+        <table class="table is-striped is-narrow results-table">
+          <thead>
+            <tr><th>Metric</th><th>S1 library</th><th>S2 both</th><th>S3 authored</th><th>S4 no WatchDog</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Runs</th><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+            <tr><th>Arming coverage</th><td>2296/2478 (92.7%)</td><td>2236/2414 (92.6%)</td><td>2370/2626 (90.3%)</td><td>1809/2726 (66.4%)</td></tr>
+            <tr><th>Grasp retention</th><td>169/174 (97.1%)</td><td>158/164 (96.3%)</td><td>107/178 (60.1%)</td><td>113/188 (60.1%)</td></tr>
+            <tr><th>Parameter accuracy</th><td>333/383 (86.9%)</td><td>334/350 (95.4%)</td><td>334/339 (98.5%)</td><td>233/240 (97.1%)</td></tr>
+            <tr><th>Verdict correctness</th><td>22/23 (95.7%)</td><td>19/23 (82.6%)</td><td>22/23 (95.7%)</td><td>18/23 (78.3%)</td></tr>
+            <tr><th>Fault recall</th><td>33/36 (91.7%)</td><td>33/33 (100%)</td><td>25/33 (75.8%)</td><td>29/49 (59.2%)</td></tr>
+            <tr><th>Fault precision</th><td>33/37 (89.2%)</td><td>33/33 (100%)</td><td>25/26 (96.2%)</td><td>29/36 (80.6%)</td></tr>
+            <tr><th>False alarm rate</th><td>0/9 (0%)</td><td>0/9 (0%)</td><td>0/13 (0%)</td><td>2/10 (20.0%)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">
+        Each cell gives the raw count and its percentage. Parameter accuracy is monitor provenance against
+        the registry for S1 and S2, and authored parameter accuracy for S3 and S4; the two share a row but
+        are never pooled. Metrics are pooled by summing numerators and denominators across runs.
+      </p>
+    </div>
+
+    <!-- Table 2 -->
+    <div class="results-panel" id="table-2" role="tabpanel">
+      <h3 class="title is-6 table-title">Table 2. Independence under a corrupted executor specification (Class 4).</h3>
+      <div class="table-scroll">
+        <table class="table is-striped is-narrow results-table">
+          <thead>
+            <tr><th>Metric</th><th>S1</th><th>S2</th><th>S3</th><th>S4</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Runs</th><td>3</td><td>3</td><td>3</td><td>3</td></tr>
+            <tr><th>Step level fault caught</th><td>3/3</td><td>3/3</td><td>3/3</td><td>1/3</td></tr>
+            <tr><th>Verdict correctness</th><td>2/3</td><td>0/3</td><td>2/3</td><td>1/3</td></tr>
+            <tr><th>Detected, misadjudicated</th><td>1</td><td>3</td><td>1</td><td>0</td></tr>
+            <tr><th>Never detected</th><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">
+        Step level fault caught counts runs in which at least one true violation was flagged at the step
+        where it occurred. With a separate WatchDog every missed verdict was detected and then wrongly
+        judged recovered; without one, the fault was never detected.
+      </p>
+    </div>
+
+    <!-- Table 3 -->
+    <div class="results-panel" id="table-3" role="tabpanel">
+      <h3 class="title is-6 table-title">Table 3. Scene observation, whole batch, with a scripted oracle.</h3>
+      <div class="table-scroll">
+        <table class="table is-striped is-narrow results-table">
+          <thead>
+            <tr><th>Condition</th><th>Runs</th><th>Obs.</th><th>Engaged (%)</th><th>Detected (%)</th><th>Spurious (%)</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>S1</th><td>23</td><td>19</td><td>78.9</td><td>0.0</td><td>n/a</td></tr>
+            <tr><th>S2</th><td>23</td><td>18</td><td>55.6</td><td>0.0</td><td>100.0</td></tr>
+            <tr><th>S3</th><td>23</td><td>22</td><td>95.5</td><td>0.0</td><td>98.6</td></tr>
+            <tr><th>S4</th><td>23</td><td>22</td><td>95.5</td><td>0.0</td><td>100.0</td></tr>
+            <tr><th>S3 Opus low</th><td>6</td><td>6</td><td>100.0</td><td>55.6</td><td>100.0</td></tr>
+            <tr><th>S3 Opus medium</th><td>5</td><td>5</td><td>100.0</td><td>90.0</td><td>50.0</td></tr>
+            <tr><th>S4 Opus medium</th><td>5</td><td>5</td><td>100.0</td><td>100.0</td><td>78.9</td></tr>
+            <tr><th>Scripted oracle</th><td>2</td><td>2</td><td>100.0</td><td>100.0</td><td>40.9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">
+        Obs. is the number of runs carrying a scene episode. Engaged is the share of runs in which the agent
+        looked or armed an observation monitor; detected, the share of detectable episodes it reported;
+        spurious, the share of observation monitor fires that were false. The oracle is a script, not an
+        agent, included to show the episodes were detectable.
+      </p>
+    </div>
+
+    <!-- Table 4 -->
+    <div class="results-panel" id="table-4" role="tabpanel">
+      <h3 class="title is-6 table-title">Table 4. Effect of monitoring model and reasoning effort on S3 and S4 (Classes 1 and 2 only).</h3>
+      <div class="table-scroll">
+        <table class="table is-striped is-narrow results-table">
+          <thead>
+            <tr><th>Metric</th><th>S3 Sonnet low</th><th>S3 Opus low</th><th>S3 Opus medium</th><th>S4 Sonnet low*</th><th>S4 Opus medium*</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Runs</th><td>15</td><td>6</td><td>5</td><td>15</td><td>5</td></tr>
+            <tr><th>Arming coverage</th><td>1436/1611 (89.1%)</td><td>641/667 (96.1%)</td><td>613/616 (99.5%)</td><td>1191/1740 (68.4%)</td><td>503/504 (99.8%)</td></tr>
+            <tr><th>Grasp retention</th><td>71/108 (65.7%)</td><td>46/46 (100%)</td><td>40/40 (100%)</td><td>80/120 (66.7%)</td><td>36/36 (100%)</td></tr>
+            <tr><th>Parameter accuracy</th><td>218/223 (97.8%)</td><td>64/64 (100%)</td><td>86/86 (100%)</td><td>166/171 (97.1%)</td><td>90/90 (100%)</td></tr>
+            <tr><th>Verdict correctness</th><td>15/15 (100%)</td><td>6/6 (100%)</td><td>5/5 (100%)</td><td>13/15 (86.7%)</td><td>5/5 (100%)</td></tr>
+            <tr><th>Fault recall</th><td>14/21 (66.7%)</td><td>4/4 (100%)</td><td>9/9 (100%)</td><td>23/35 (65.7%)</td><td>12/14 (85.7%)</td></tr>
+            <tr><th>Fault precision</th><td>14/15 (93.3%)</td><td>4/4 (100%)</td><td>9/9 (100%)</td><td>23/29 (79.3%)</td><td>12/14 (85.7%)</td></tr>
+            <tr><th>False alarm rate</th><td>0/10 (0%)</td><td>0/5 (0%)</td><td>0/4 (0%)</td><td>2/8 (25.0%)</td><td>0/2 (0%)</td></tr>
+            <tr><th>Executor output tokens per run</th><td>58.0k</td><td>55.7k</td><td>55.6k</td><td>145.5k</td><td>273.1k</td></tr>
+            <tr><th>WatchDog output tokens per run</th><td>151.3k</td><td>83.0k</td><td>219.5k</td><td>n/a</td><td>n/a</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">
+        * In S4 the executor is its own monitor, so the model shown is the executor's. Token counts are each
+        agent's own output tokens per run, excluding cached input.
+      </p>
+    </div>
+
+    <div class="content timing-note">
+      <h3 class="title is-6">Timing</h3>
+      <p>
+        The gate blocks the executor for 23.8 to 33.9% of run time while WatchDog arms its monitors, yet
+        the scenario with no gate is the slowest: 609.3 s median against 517.3 s for S1, and 748.5 s for S4
+        against 692.8 s for S3 at higher capability. A monitor fire reaches a separate WatchDog in under a
+        second, and under 5 ms once the agent is waiting on it, while the self monitoring executor takes
+        32.9 s at Sonnet low effort and 6.1 s at Opus medium effort, because it cannot check until its
+        current skill call returns.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -243,11 +391,11 @@
       <button class="button is-small copy-btn" id="copy-bibtex" type="button">
         <span class="icon"><i class="far fa-copy"></i></span><span>Copy</span>
       </button>
-<pre id="bibtex"><code>@inproceedings{watchdog_placeholder,
+<pre id="bibtex"><code>@inproceedings{nasr2027watchdog,
   title     = {WatchDog: Physically Grounded Conformance Monitoring for Agentic Robotic Systems},
-  author    = {[PLACEHOLDER]},
-  booktitle = {[PLACEHOLDER]},
-  year      = {[PLACEHOLDER]}
+  author    = {Nasr, Mohammad and Starly, Binil},
+  booktitle = {[PLACEHOLDER] Venue},
+  year      = {2027}
 }</code></pre>
     </div>
   </div>
