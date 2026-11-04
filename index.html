@@ -112,20 +112,7 @@
   </div>
 </section>
 
-<!-- 4. Overview figure -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Overview</h2>
-    <figure class="figure-block">
-      <a href="static/images/teaser_figure.png" target="_blank" rel="noopener">
-        <img class="placeholder-img" src="static/images/teaser_figure.png" alt="Overview figure" data-placeholder="[PLACEHOLDER] static/images/teaser_figure.png">
-      </a>
-      <figcaption>[PLACEHOLDER] Caption for the overview figure.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- 5. Architecture -->
+<!-- 4. Architecture -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Architecture</h2>
@@ -145,13 +132,13 @@
   </div>
 </section>
 
-<!-- 6. How it works -->
+<!-- 5. How it works -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">How it works</h2>
     <figure class="figure-block">
       <a href="static/images/runtime_cycle.png" target="_blank" rel="noopener">
-        <img class="placeholder-img" src="static/images/runtime_cycle.png" alt="Runtime data flow" data-placeholder="[PLACEHOLDER] static/images/runtime_cycle.png">
+        <img class="placeholder-img" src="static/images/runtime_cycle.png" alt="Runtime data flow of one run: simulation frames above a timeline with four lanes, Executor Agent, ROS 2 Event Bus, Deterministic Monitors and WatchDog Agent, marking step boundaries, gate openings, monitor arming, disarming, fires and look() observations" data-placeholder="static/images/runtime_cycle.png not found">
       </a>
       <figcaption>[PLACEHOLDER] Data flow across four lanes: Executor Agent, ROS 2 Event Bus, Deterministic Monitors, WatchDog Agent.</figcaption>
     </figure>
@@ -204,12 +191,12 @@
       <p class="is-size-7 has-text-grey mb-3" id="run-agents"></p>
 
       <div class="video-toolbar">
-        <button class="button is-small is-dark" id="theater-btn" type="button" aria-pressed="true">
-          <span class="icon"><i class="fas fa-compress"></i></span><span>Exit theater</span>
+        <button class="button is-small" id="theater-btn" type="button" aria-pressed="false">
+          <span class="icon"><i class="fas fa-expand"></i></span><span>Theater</span>
         </button>
         <span class="video-hint">The video's own fullscreen button also works.</span>
       </div>
-      <div class="video-wrap is-theater" id="video-wrap">
+      <div class="video-wrap" id="video-wrap">
         <video id="run-video" controls playsinline preload="metadata"></video>
         <div class="video-placeholder is-hidden" id="video-placeholder">
           <span>Video not available yet for this run.</span>
