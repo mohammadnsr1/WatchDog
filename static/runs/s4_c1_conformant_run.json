@@ -7,7 +7,8 @@
  "fault_class": 1,
  "assembly": "fmb_assembly_2",
  "trial": 1,
- "video_duration_s": 116.463,
+ "video_duration_s": 132.463,
+ "briefing_s": 16.0,
  "real_window_s": [
   160.0,
   750.0
@@ -15,7 +16,7 @@
  "events": [
   {
    "t_real": 164.242,
-   "t_video": 0.424,
+   "t_video": 16.424,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm obs_scene_depth_1 scene",
@@ -23,7 +24,7 @@
   },
   {
    "t_real": 169.903,
-   "t_video": 0.99,
+   "t_video": 16.99,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm stationary_u_green u_green",
@@ -31,7 +32,7 @@
   },
   {
    "t_real": 173.302,
-   "t_video": 1.33,
+   "t_video": 17.33,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm stationary_inverted_u_brown inverted_u_brown",
@@ -39,7 +40,7 @@
   },
   {
    "t_real": 176.559,
-   "t_video": 1.656,
+   "t_video": 17.656,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm stationary_hex_blue hex_blue",
@@ -47,7 +48,7 @@
   },
   {
    "t_real": 179.755,
-   "t_video": 1.975,
+   "t_video": 17.975,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm stationary_hex_red hex_red",
@@ -55,7 +56,7 @@
   },
   {
    "t_real": 184.295,
-   "t_video": 2.429,
+   "t_video": 18.429,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm obs_fixtures_base1_base2 scene",
@@ -63,7 +64,7 @@
   },
   {
    "t_real": 191.154,
-   "t_video": 3.115,
+   "t_video": 19.115,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm inactive_u_brown u_brown",
@@ -71,7 +72,7 @@
   },
   {
    "t_real": 194.555,
-   "t_video": 3.455,
+   "t_video": 19.455,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm inactive_u_orange u_orange",
@@ -79,7 +80,7 @@
   },
   {
    "t_real": 197.962,
-   "t_video": 3.796,
+   "t_video": 19.796,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm inactive_line_green line_green",
@@ -87,7 +88,7 @@
   },
   {
    "t_real": 201.444,
-   "t_video": 4.144,
+   "t_video": 20.144,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm inactive_inverted_u_yellow inverted_u_yellow",
@@ -95,7 +96,7 @@
   },
   {
    "t_real": 206.875,
-   "t_video": 4.687,
+   "t_video": 20.687,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm clamp_u_brown u_brown",
@@ -103,7 +104,7 @@
   },
   {
    "t_real": 209.969,
-   "t_video": 4.997,
+   "t_video": 20.997,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm clamp_u_orange u_orange",
@@ -111,7 +112,7 @@
   },
   {
    "t_real": 212.973,
-   "t_video": 5.297,
+   "t_video": 21.297,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm clamp_line_green line_green",
@@ -119,7 +120,7 @@
   },
   {
    "t_real": 215.949,
-   "t_video": 5.595,
+   "t_video": 21.595,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm clamp_inverted_u_yellow inverted_u_yellow",
@@ -127,7 +128,7 @@
   },
   {
    "t_real": 231.657,
-   "t_video": 7.166,
+   "t_video": 23.166,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step pick_u_brown",
@@ -135,7 +136,7 @@
   },
   {
    "t_real": 231.657,
-   "t_video": 7.166,
+   "t_video": 23.166,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin pick_u_brown",
@@ -143,7 +144,7 @@
   },
   {
    "t_real": 234.109,
-   "t_video": 7.411,
+   "t_video": 23.411,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm inactive_u_brown",
@@ -151,7 +152,7 @@
   },
   {
    "t_real": 243.324,
-   "t_video": 9.682,
+   "t_video": 25.682,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE obs_scene_depth_1 scene",
@@ -159,7 +160,7 @@
   },
   {
    "t_real": 243.328,
-   "t_video": 11.687,
+   "t_video": 27.687,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm obs_scene_depth_1",
@@ -167,7 +168,7 @@
   },
   {
    "t_real": 269.789,
-   "t_video": 15.679,
+   "t_video": 31.679,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm slip_u_brown u_brown",
@@ -175,7 +176,7 @@
   },
   {
    "t_real": 285.037,
-   "t_video": 18.554,
+   "t_video": 34.554,
    "lane": "executor",
    "kind": "look_frame",
    "label": "frame 0002-f43d693c",
@@ -183,7 +184,7 @@
   },
   {
    "t_real": 285.103,
-   "t_video": 20.62,
+   "t_video": 36.62,
    "lane": "executor",
    "kind": "look",
    "label": "look() 0002-f43d693c",
@@ -191,7 +192,7 @@
   },
   {
    "t_real": 298.027,
-   "t_video": 23.203,
+   "t_video": 39.203,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm obs_scene_depth_2 u_brown",
@@ -199,7 +200,7 @@
   },
   {
    "t_real": 300.444,
-   "t_video": 23.444,
+   "t_video": 39.444,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step pick_u_brown",
@@ -207,7 +208,7 @@
   },
   {
    "t_real": 300.444,
-   "t_video": 23.444,
+   "t_video": 39.444,
    "lane": "executor",
    "kind": "step_claim",
    "label": "pick_u_brown: success",
@@ -215,7 +216,7 @@
   },
   {
    "t_real": 303.657,
-   "t_video": 23.766,
+   "t_video": 39.766,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_approach_u_brown",
@@ -223,7 +224,7 @@
   },
   {
    "t_real": 303.657,
-   "t_video": 23.766,
+   "t_video": 39.766,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_approach_u_brown",
@@ -231,7 +232,7 @@
   },
   {
    "t_real": 318.96,
-   "t_video": 25.296,
+   "t_video": 41.296,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_approach_u_brown",
@@ -239,7 +240,7 @@
   },
   {
    "t_real": 318.96,
-   "t_video": 25.296,
+   "t_video": 41.296,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_approach_u_brown: success",
@@ -247,7 +248,7 @@
   },
   {
    "t_real": 319.381,
-   "t_video": 25.338,
+   "t_video": 41.338,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_u_brown",
@@ -255,7 +256,7 @@
   },
   {
    "t_real": 319.381,
-   "t_video": 25.338,
+   "t_video": 41.338,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_u_brown",
@@ -263,7 +264,7 @@
   },
   {
    "t_real": 356.383,
-   "t_video": 29.038,
+   "t_video": 45.038,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm seated_u_brown u_brown",
@@ -271,7 +272,7 @@
   },
   {
    "t_real": 356.881,
-   "t_video": 29.088,
+   "t_video": 45.088,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm slip_u_brown",
@@ -279,7 +280,7 @@
   },
   {
    "t_real": 360.469,
-   "t_video": 30.797,
+   "t_video": 46.797,
    "lane": "executor",
    "kind": "observation",
    "label": "observation",
@@ -287,7 +288,7 @@
   },
   {
    "t_real": 365.994,
-   "t_video": 35.581,
+   "t_video": 51.581,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_u_brown",
@@ -295,7 +296,7 @@
   },
   {
    "t_real": 365.994,
-   "t_video": 35.581,
+   "t_video": 51.581,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_u_brown: success",
@@ -303,7 +304,7 @@
   },
   {
    "t_real": 366.395,
-   "t_video": 35.982,
+   "t_video": 51.982,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step pick_u_orange",
@@ -311,7 +312,7 @@
   },
   {
    "t_real": 366.395,
-   "t_video": 35.982,
+   "t_video": 51.982,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin pick_u_orange",
@@ -319,7 +320,7 @@
   },
   {
    "t_real": 369.057,
-   "t_video": 39.706,
+   "t_video": 55.706,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm inactive_u_orange",
@@ -327,7 +328,7 @@
   },
   {
    "t_real": 400.737,
-   "t_video": 42.874,
+   "t_video": 58.874,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm slip_u_orange u_orange",
@@ -335,7 +336,7 @@
   },
   {
    "t_real": 413.718,
-   "t_video": 44.172,
+   "t_video": 60.172,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step pick_u_orange",
@@ -343,7 +344,7 @@
   },
   {
    "t_real": 413.718,
-   "t_video": 44.172,
+   "t_video": 60.172,
    "lane": "executor",
    "kind": "step_claim",
    "label": "pick_u_orange: success",
@@ -351,7 +352,7 @@
   },
   {
    "t_real": 414.201,
-   "t_video": 44.22,
+   "t_video": 60.22,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_approach_u_orange",
@@ -359,7 +360,7 @@
   },
   {
    "t_real": 414.201,
-   "t_video": 44.22,
+   "t_video": 60.22,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_approach_u_orange",
@@ -367,7 +368,7 @@
   },
   {
    "t_real": 436.038,
-   "t_video": 46.404,
+   "t_video": 62.404,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_approach_u_orange",
@@ -375,7 +376,7 @@
   },
   {
    "t_real": 436.038,
-   "t_video": 46.404,
+   "t_video": 62.404,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_approach_u_orange: success",
@@ -383,7 +384,7 @@
   },
   {
    "t_real": 436.629,
-   "t_video": 46.463,
+   "t_video": 62.463,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_u_orange",
@@ -391,7 +392,7 @@
   },
   {
    "t_real": 436.629,
-   "t_video": 46.463,
+   "t_video": 62.463,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_u_orange",
@@ -399,7 +400,7 @@
   },
   {
    "t_real": 469.185,
-   "t_video": 49.718,
+   "t_video": 65.718,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm seated_u_orange u_orange",
@@ -407,7 +408,7 @@
   },
   {
    "t_real": 469.636,
-   "t_video": 49.764,
+   "t_video": 65.764,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm slip_u_orange",
@@ -415,7 +416,7 @@
   },
   {
    "t_real": 472.735,
-   "t_video": 50.073,
+   "t_video": 66.073,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_u_orange",
@@ -423,7 +424,7 @@
   },
   {
    "t_real": 472.735,
-   "t_video": 50.073,
+   "t_video": 66.073,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_u_orange: success",
@@ -431,7 +432,7 @@
   },
   {
    "t_real": 473.159,
-   "t_video": 50.116,
+   "t_video": 66.116,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step pick_line_green",
@@ -439,7 +440,7 @@
   },
   {
    "t_real": 473.159,
-   "t_video": 50.116,
+   "t_video": 66.116,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin pick_line_green",
@@ -447,7 +448,7 @@
   },
   {
    "t_real": 475.7,
-   "t_video": 50.37,
+   "t_video": 66.37,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm inactive_line_green",
@@ -455,7 +456,7 @@
   },
   {
    "t_real": 507.225,
-   "t_video": 53.523,
+   "t_video": 69.523,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm slip_line_green line_green",
@@ -463,7 +464,7 @@
   },
   {
    "t_real": 518.428,
-   "t_video": 54.643,
+   "t_video": 70.643,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step pick_line_green",
@@ -471,7 +472,7 @@
   },
   {
    "t_real": 518.428,
-   "t_video": 54.643,
+   "t_video": 70.643,
    "lane": "executor",
    "kind": "step_claim",
    "label": "pick_line_green: success",
@@ -479,7 +480,7 @@
   },
   {
    "t_real": 518.952,
-   "t_video": 54.695,
+   "t_video": 70.695,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_approach_line_green",
@@ -487,7 +488,7 @@
   },
   {
    "t_real": 518.952,
-   "t_video": 54.695,
+   "t_video": 70.695,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_approach_line_green",
@@ -495,7 +496,7 @@
   },
   {
    "t_real": 536.205,
-   "t_video": 56.42,
+   "t_video": 72.42,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_approach_line_green",
@@ -503,7 +504,7 @@
   },
   {
    "t_real": 536.205,
-   "t_video": 56.42,
+   "t_video": 72.42,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_approach_line_green: success",
@@ -511,7 +512,7 @@
   },
   {
    "t_real": 536.854,
-   "t_video": 56.485,
+   "t_video": 72.485,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_line_green",
@@ -519,7 +520,7 @@
   },
   {
    "t_real": 536.854,
-   "t_video": 56.485,
+   "t_video": 72.485,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_line_green",
@@ -527,7 +528,7 @@
   },
   {
    "t_real": 568.69,
-   "t_video": 72.792,
+   "t_video": 88.792,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm seated_line_green line_green",
@@ -535,7 +536,7 @@
   },
   {
    "t_real": 569.088,
-   "t_video": 72.832,
+   "t_video": 88.832,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm slip_line_green",
@@ -543,7 +544,7 @@
   },
   {
    "t_real": 571.839,
-   "t_video": 73.107,
+   "t_video": 89.107,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_line_green",
@@ -551,7 +552,7 @@
   },
   {
    "t_real": 571.839,
-   "t_video": 73.107,
+   "t_video": 89.107,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_line_green: success",
@@ -559,7 +560,7 @@
   },
   {
    "t_real": 572.323,
-   "t_video": 73.155,
+   "t_video": 89.155,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step pick_inverted_u_yellow",
@@ -567,7 +568,7 @@
   },
   {
    "t_real": 572.323,
-   "t_video": 73.155,
+   "t_video": 89.155,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin pick_inverted_u_yellow",
@@ -575,7 +576,7 @@
   },
   {
    "t_real": 574.889,
-   "t_video": 73.412,
+   "t_video": 89.412,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm inactive_inverted_u_yellow",
@@ -583,7 +584,7 @@
   },
   {
    "t_real": 613.1,
-   "t_video": 77.233,
+   "t_video": 93.233,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm slip_inverted_u_yellow inverted_u_yellow",
@@ -591,7 +592,7 @@
   },
   {
    "t_real": 624.471,
-   "t_video": 78.37,
+   "t_video": 94.37,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step pick_inverted_u_yellow",
@@ -599,7 +600,7 @@
   },
   {
    "t_real": 624.471,
-   "t_video": 78.37,
+   "t_video": 94.37,
    "lane": "executor",
    "kind": "step_claim",
    "label": "pick_inverted_u_yellow: success",
@@ -607,7 +608,7 @@
   },
   {
    "t_real": 624.911,
-   "t_video": 78.414,
+   "t_video": 94.414,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_approach_inverted_u_yellow",
@@ -615,7 +616,7 @@
   },
   {
    "t_real": 624.911,
-   "t_video": 78.414,
+   "t_video": 94.414,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_approach_inverted_u_yellow",
@@ -623,7 +624,7 @@
   },
   {
    "t_real": 639.265,
-   "t_video": 79.849,
+   "t_video": 95.849,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_approach_inverted_u_yellow",
@@ -631,7 +632,7 @@
   },
   {
    "t_real": 639.265,
-   "t_video": 79.849,
+   "t_video": 95.849,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_approach_inverted_u_yellow: success",
@@ -639,7 +640,7 @@
   },
   {
    "t_real": 639.87,
-   "t_video": 79.91,
+   "t_video": 95.91,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_inverted_u_yellow",
@@ -647,7 +648,7 @@
   },
   {
    "t_real": 639.87,
-   "t_video": 79.91,
+   "t_video": 95.91,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_inverted_u_yellow",
@@ -655,7 +656,7 @@
   },
   {
    "t_real": 665.666,
-   "t_video": 83.839,
+   "t_video": 99.839,
    "lane": "executor",
    "kind": "look_frame",
    "label": "frame 0003-875b0f1b",
@@ -663,7 +664,7 @@
   },
   {
    "t_real": 665.748,
-   "t_video": 85.921,
+   "t_video": 101.921,
    "lane": "executor",
    "kind": "look",
    "label": "look() 0003-875b0f1b",
@@ -671,7 +672,7 @@
   },
   {
    "t_real": 681.469,
-   "t_video": 90.119,
+   "t_video": 106.119,
    "lane": "executor",
    "kind": "look_frame",
    "label": "frame 0004-88e4255b",
@@ -679,7 +680,7 @@
   },
   {
    "t_real": 681.536,
-   "t_video": 92.186,
+   "t_video": 108.186,
    "lane": "executor",
    "kind": "look",
    "label": "look() 0004-88e4255b",
@@ -687,7 +688,7 @@
   },
   {
    "t_real": 705.645,
-   "t_video": 99.278,
+   "t_video": 115.278,
    "lane": "executor",
    "kind": "observation",
    "label": "observation",
@@ -695,7 +696,7 @@
   },
   {
    "t_real": 709.49,
-   "t_video": 104.362,
+   "t_video": 120.362,
    "lane": "executor",
    "kind": "observation",
    "label": "observation",
@@ -703,7 +704,7 @@
   },
   {
    "t_real": 712.597,
-   "t_video": 108.023,
+   "t_video": 124.023,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm slip_inverted_u_yellow",
@@ -711,7 +712,7 @@
   },
   {
    "t_real": 715.802,
-   "t_video": 108.344,
+   "t_video": 124.344,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_inverted_u_yellow",
@@ -719,7 +720,7 @@
   },
   {
    "t_real": 715.802,
-   "t_video": 108.344,
+   "t_video": 124.344,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_inverted_u_yellow: success",
@@ -727,7 +728,7 @@
   },
   {
    "t_real": 745.371,
-   "t_video": 114.651,
+   "t_video": 130.651,
    "lane": "executor",
    "kind": "run_verdict",
    "label": "PASS run",
@@ -735,7 +736,7 @@
   },
   {
    "t_real": 749.336,
-   "t_video": 116.397,
+   "t_video": 132.397,
    "lane": "bus",
    "kind": "run_ended",
    "label": "run_ended completed",
@@ -743,7 +744,7 @@
   },
   {
    "t_real": 749.336,
-   "t_video": 116.397,
+   "t_video": 132.397,
    "lane": "executor",
    "kind": "run_end",
    "label": "run ended: completed",

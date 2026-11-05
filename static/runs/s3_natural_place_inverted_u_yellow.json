@@ -7,7 +7,8 @@
  "fault_class": "Natural failure",
  "assembly": "fmb_assembly_2",
  "trial": 1,
- "video_duration_s": 70.018,
+ "video_duration_s": 86.018,
+ "briefing_s": 16.0,
  "real_window_s": [
   740.0,
   952.0
@@ -15,7 +16,7 @@
  "events": [
   {
    "t_real": 745.819,
-   "t_video": 2.804,
+   "t_video": 18.804,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step pick_inverted_u_yellow",
@@ -23,7 +24,7 @@
   },
   {
    "t_real": 745.819,
-   "t_video": 2.804,
+   "t_video": 18.804,
    "lane": "executor",
    "kind": "step_claim",
    "label": "pick_inverted_u_yellow: success",
@@ -31,7 +32,7 @@
   },
   {
    "t_real": 745.823,
-   "t_video": 2.808,
+   "t_video": 18.808,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: end_step",
@@ -39,7 +40,7 @@
   },
   {
    "t_real": 746.521,
-   "t_video": 3.505,
+   "t_video": 19.505,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_approach_inverted_u_yellow",
@@ -47,7 +48,7 @@
   },
   {
    "t_real": 746.521,
-   "t_video": 3.505,
+   "t_video": 19.505,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_approach_inverted_u_yellow",
@@ -55,7 +56,7 @@
   },
   {
    "t_real": 754.758,
-   "t_video": 6.711,
+   "t_video": 22.711,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: arming",
@@ -63,7 +64,7 @@
   },
   {
    "t_real": 769.931,
-   "t_video": 11.074,
+   "t_video": 27.074,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_approach_inverted_u_yellow",
@@ -71,7 +72,7 @@
   },
   {
    "t_real": 769.931,
-   "t_video": 11.074,
+   "t_video": 27.074,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_approach_inverted_u_yellow: success",
@@ -79,7 +80,7 @@
   },
   {
    "t_real": 769.932,
-   "t_video": 11.075,
+   "t_video": 27.075,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: end_step",
@@ -87,7 +88,7 @@
   },
   {
    "t_real": 770.73,
-   "t_video": 12.873,
+   "t_video": 28.873,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_inverted_u_yellow",
@@ -95,7 +96,7 @@
   },
   {
    "t_real": 770.73,
-   "t_video": 12.873,
+   "t_video": 28.873,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_inverted_u_yellow",
@@ -103,7 +104,7 @@
   },
   {
    "t_real": 775.501,
-   "t_video": 14.501,
+   "t_video": 30.501,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: arming",
@@ -111,7 +112,7 @@
   },
   {
    "t_real": 787.421,
-   "t_video": 18.321,
+   "t_video": 34.321,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE still_u_orange_post2 u_orange",
@@ -119,7 +120,7 @@
   },
   {
    "t_real": 787.422,
-   "t_video": 18.322,
+   "t_video": 34.322,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm still_u_orange_post2",
@@ -127,7 +128,7 @@
   },
   {
    "t_real": 787.424,
-   "t_video": 18.324,
+   "t_video": 34.324,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: fire",
@@ -135,7 +136,7 @@
   },
   {
    "t_real": 787.52,
-   "t_video": 19.42,
+   "t_video": 35.42,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE still_line_green_post line_green",
@@ -143,7 +144,7 @@
   },
   {
    "t_real": 787.521,
-   "t_video": 19.421,
+   "t_video": 35.421,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm still_line_green_post",
@@ -151,7 +152,7 @@
   },
   {
    "t_real": 787.523,
-   "t_video": 20.423,
+   "t_video": 36.423,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE still_u_brown_post3 u_brown",
@@ -159,7 +160,7 @@
   },
   {
    "t_real": 787.524,
-   "t_video": 20.424,
+   "t_video": 36.424,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm still_u_brown_post3",
@@ -167,7 +168,7 @@
   },
   {
    "t_real": 788.476,
-   "t_video": 22.376,
+   "t_video": 38.376,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE slip_inverted_u_yellow inverted_u_yellow",
@@ -175,7 +176,7 @@
   },
   {
    "t_real": 788.476,
-   "t_video": 22.376,
+   "t_video": 38.376,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm slip_inverted_u_yellow",
@@ -183,7 +184,7 @@
   },
   {
    "t_real": 789.02,
-   "t_video": 23.92,
+   "t_video": 39.92,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE still_base1 base1",
@@ -191,7 +192,7 @@
   },
   {
    "t_real": 789.021,
-   "t_video": 23.921,
+   "t_video": 39.921,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm still_base1",
@@ -199,7 +200,7 @@
   },
   {
    "t_real": 794.266,
-   "t_video": 25.628,
+   "t_video": 41.628,
    "lane": "watchdog",
    "kind": "frames_captured",
    "label": "captured 20 frames",
@@ -207,7 +208,7 @@
   },
   {
    "t_real": 815.121,
-   "t_video": 30.937,
+   "t_video": 46.937,
    "lane": "executor",
    "kind": "look_frame",
    "label": "frame 0001-faeb97e3",
@@ -215,7 +216,7 @@
   },
   {
    "t_real": 815.19,
-   "t_video": 31.005,
+   "t_video": 47.005,
    "lane": "executor",
    "kind": "look",
    "label": "look() 0001-faeb97e3",
@@ -223,7 +224,7 @@
   },
   {
    "t_real": 824.974,
-   "t_video": 34.245,
+   "t_video": 50.245,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_inverted_u_yellow",
@@ -231,7 +232,7 @@
   },
   {
    "t_real": 824.974,
-   "t_video": 34.245,
+   "t_video": 50.245,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_inverted_u_yellow: failure",
@@ -239,7 +240,7 @@
   },
   {
    "t_real": 836.858,
-   "t_video": 38.06,
+   "t_video": 54.06,
    "lane": "bus",
    "kind": "run_ended",
    "label": "run_ended aborted",
@@ -247,7 +248,7 @@
   },
   {
    "t_real": 836.858,
-   "t_video": 38.06,
+   "t_video": 54.06,
    "lane": "executor",
    "kind": "run_end",
    "label": "run ended: aborted",
@@ -255,7 +256,7 @@
   },
   {
    "t_real": 844.279,
-   "t_video": 40.13,
+   "t_video": 56.13,
    "lane": "watchdog",
    "kind": "verdict",
    "label": "FAIL place_inverted_u_yellow",
@@ -263,7 +264,7 @@
   },
   {
    "t_real": 852.68,
-   "t_video": 45.197,
+   "t_video": 61.197,
    "lane": "watchdog",
    "kind": "verdict",
    "label": "FAIL place_inverted_u_yellow",
@@ -271,7 +272,7 @@
   },
   {
    "t_real": 857.899,
-   "t_video": 47.733,
+   "t_video": 63.733,
    "lane": "watchdog",
    "kind": "verdict",
    "label": "FAIL place_inverted_u_yellow",
@@ -279,7 +280,7 @@
   },
   {
    "t_real": 862.771,
-   "t_video": 50.378,
+   "t_video": 66.378,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: fire",
@@ -287,7 +288,7 @@
   },
   {
    "t_real": 865.633,
-   "t_video": 50.855,
+   "t_video": 66.855,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: end_step",
@@ -295,7 +296,7 @@
   },
   {
    "t_real": 890.897,
-   "t_video": 55.899,
+   "t_video": 71.899,
    "lane": "watchdog",
    "kind": "verdict",
    "label": "FAIL place_inverted_u_yellow",
@@ -303,7 +304,7 @@
   },
   {
    "t_real": 892.219,
-   "t_video": 58.221,
+   "t_video": 74.221,
    "lane": "watchdog",
    "kind": "look_frame",
    "label": "frame 0006-f8e868bb",
@@ -311,7 +312,7 @@
   },
   {
    "t_real": 892.29,
-   "t_video": 59.292,
+   "t_video": 75.292,
    "lane": "watchdog",
    "kind": "look",
    "label": "look() 0006-f8e868bb",
@@ -319,7 +320,7 @@
   },
   {
    "t_real": 907.368,
-   "t_video": 62.58,
+   "t_video": 78.58,
    "lane": "watchdog",
    "kind": "observation",
    "label": "observation",
@@ -327,7 +328,7 @@
   },
   {
    "t_real": 911.495,
-   "t_video": 63.267,
+   "t_video": 79.267,
    "lane": "watchdog",
    "kind": "observation",
    "label": "observation",
@@ -335,7 +336,7 @@
   },
   {
    "t_real": 948.869,
-   "t_video": 69.496,
+   "t_video": 85.496,
    "lane": "watchdog",
    "kind": "run_verdict",
    "label": "FAIL run",

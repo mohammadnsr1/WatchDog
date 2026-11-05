@@ -119,7 +119,23 @@
     <h2 class="title is-3 has-text-centered">Architecture</h2>
     <figure class="figure-block">
       <img class="placeholder-img" src="static/images/architecture.png" alt="Architecture figure" data-placeholder="[PLACEHOLDER] static/images/architecture.png">
-      <figcaption>[PLACEHOLDER] Caption for the architecture figure: the executor, the WatchDog, their disjoint tools, and the shared event bus.</figcaption>
+      <figcaption>[PLACEHOLDER] Caption for the architecture figure: the executor, the WatchDog, their disjoint tools, and the event stream they share.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 5b. Task hand-over -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">One task, two briefs</h2>
+    <figure class="figure-block">
+      <img src="static/images/task_handover.png" alt="Task hand-over: one task specification, two agents, two different briefs">
+      <figcaption>Before a run, the same task specification reaches both agents, but each gets a different brief.
+        The executor receives <em>how</em>: the step plan (pick, approach, seat for each of the four parts) with grasp widths,
+        approach offsets and placement frames, and the tools to move the arm and gripper. The WatchDog receives only
+        <em>what must be true</em>: the end state required at each place step, the limits that must hold throughout
+        (clamp effort, no slip, untouched parts stay put) and the duty to watch the work area for anything unexpected.
+        Every threshold comes from the part registry, not from either agent. The two never talk to each other except through the event stream.</figcaption>
     </figure>
   </div>
 </section>
@@ -130,13 +146,14 @@
     <h2 class="title is-3 has-text-centered">How it works</h2>
     <figure class="figure-block">
       <img class="placeholder-img" src="static/images/runtime_cycle.png" alt="Runtime data flow" data-placeholder="[PLACEHOLDER] static/images/runtime_cycle.png">
-      <figcaption>[PLACEHOLDER] Data flow across four lanes: Executor Agent, ROS 2 Event Bus, Deterministic Monitors, WatchDog Agent.</figcaption>
+      <figcaption>[PLACEHOLDER] Data flow across four lanes: the Executor Agent, the Event Stream the two agents talk through (step announcements and the orchestrator's step gate), the Armed Monitors watching the sensors, and the WatchDog Agent.</figcaption>
     </figure>
     <div class="content has-text-justified">
       <p>
         [PLACEHOLDER] WatchDog reasons only at wake points: when the executor announces a step,
-        when a deterministic monitor fires, when a step ends, and on timeout. Between wake points
+        when an armed monitor fires, when a step ends, and on timeout. Between wake points
         the monitors watch the physical signals at sensor rate and the WatchDog agent costs nothing.
+        Each video opens with the hand-over card: the task and the brief each agent received for that run.
       </p>
     </div>
   </div>

@@ -7,7 +7,8 @@
  "fault_class": "Natural failure",
  "assembly": "fmb_assembly_2",
  "trial": 1,
- "video_duration_s": 105.346,
+ "video_duration_s": 121.346,
+ "briefing_s": 16.0,
  "real_window_s": [
   388.0,
   770.0
@@ -15,7 +16,7 @@
  "events": [
   {
    "t_real": 389.007,
-   "t_video": 0.126,
+   "t_video": 16.126,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_end",
@@ -23,7 +24,7 @@
   },
   {
    "t_real": 391.948,
-   "t_video": 1.368,
+   "t_video": 17.368,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_approach_line_green",
@@ -31,7 +32,7 @@
   },
   {
    "t_real": 391.948,
-   "t_video": 1.368,
+   "t_video": 17.368,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_approach_line_green: success",
@@ -39,7 +40,7 @@
   },
   {
    "t_real": 391.949,
-   "t_video": 2.869,
+   "t_video": 18.869,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: end_step",
@@ -47,7 +48,7 @@
   },
   {
    "t_real": 392.598,
-   "t_video": 3.519,
+   "t_video": 19.519,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_line_green",
@@ -55,7 +56,7 @@
   },
   {
    "t_real": 392.598,
-   "t_video": 3.519,
+   "t_video": 19.519,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_line_green",
@@ -63,7 +64,7 @@
   },
   {
    "t_real": 395.841,
-   "t_video": 4.23,
+   "t_video": 20.23,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: arming",
@@ -71,7 +72,7 @@
   },
   {
    "t_real": 398.608,
-   "t_video": 4.576,
+   "t_video": 20.576,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -79,7 +80,7 @@
   },
   {
    "t_real": 404.389,
-   "t_video": 5.299,
+   "t_video": 21.299,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -87,7 +88,7 @@
   },
   {
    "t_real": 408.387,
-   "t_video": 8.174,
+   "t_video": 24.174,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE mon_45e37930b2e9 line_green",
@@ -95,7 +96,7 @@
   },
   {
    "t_real": 408.388,
-   "t_video": 8.174,
+   "t_video": 24.174,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm mon_45e37930b2e9",
@@ -103,7 +104,7 @@
   },
   {
    "t_real": 408.388,
-   "t_video": 8.174,
+   "t_video": 24.174,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: fire",
@@ -111,7 +112,7 @@
   },
   {
    "t_real": 462.7,
-   "t_video": 27.698,
+   "t_video": 43.698,
    "lane": "watchdog",
    "kind": "frames_captured",
    "label": "captured 19 frames",
@@ -119,7 +120,7 @@
   },
   {
    "t_real": 472.726,
-   "t_video": 31.326,
+   "t_video": 47.326,
    "lane": "watchdog",
    "kind": "verdict",
    "label": "FAIL place_line_green",
@@ -127,7 +128,7 @@
   },
   {
    "t_real": 475.045,
-   "t_video": 32.491,
+   "t_video": 48.491,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_end",
@@ -135,7 +136,7 @@
   },
   {
    "t_real": 478.092,
-   "t_video": 32.872,
+   "t_video": 48.872,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -143,7 +144,7 @@
   },
   {
    "t_real": 479.451,
-   "t_video": 33.041,
+   "t_video": 49.041,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_end",
@@ -151,7 +152,7 @@
   },
   {
    "t_real": 495.751,
-   "t_video": 35.954,
+   "t_video": 51.954,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_line_green",
@@ -159,7 +160,7 @@
   },
   {
    "t_real": 495.751,
-   "t_video": 35.954,
+   "t_video": 51.954,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_line_green: failure",
@@ -167,7 +168,7 @@
   },
   {
    "t_real": 495.754,
-   "t_video": 37.457,
+   "t_video": 53.457,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: end_step",
@@ -175,7 +176,7 @@
   },
   {
    "t_real": 498.545,
-   "t_video": 38.678,
+   "t_video": 54.678,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step pick_line_green_retry",
@@ -183,7 +184,7 @@
   },
   {
    "t_real": 498.545,
-   "t_video": 38.678,
+   "t_video": 54.678,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin pick_line_green_retry",
@@ -191,7 +192,7 @@
   },
   {
    "t_real": 512.829,
-   "t_video": 42.839,
+   "t_video": 58.839,
    "lane": "watchdog",
    "kind": "verdict",
    "label": "FAIL place_line_green",
@@ -199,7 +200,7 @@
   },
   {
    "t_real": 517.871,
-   "t_video": 44.344,
+   "t_video": 60.344,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -207,7 +208,7 @@
   },
   {
    "t_real": 522.528,
-   "t_video": 44.926,
+   "t_video": 60.926,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -215,7 +216,7 @@
   },
   {
    "t_real": 523.661,
-   "t_video": 45.068,
+   "t_video": 61.068,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_end",
@@ -223,7 +224,7 @@
   },
   {
    "t_real": 527.38,
-   "t_video": 45.533,
+   "t_video": 61.533,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -231,7 +232,7 @@
   },
   {
    "t_real": 532.539,
-   "t_video": 46.178,
+   "t_video": 62.178,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_end",
@@ -239,7 +240,7 @@
   },
   {
    "t_real": 533.923,
-   "t_video": 46.35,
+   "t_video": 62.35,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -247,7 +248,7 @@
   },
   {
    "t_real": 543.939,
-   "t_video": 47.603,
+   "t_video": 63.603,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_end",
@@ -255,7 +256,7 @@
   },
   {
    "t_real": 546.513,
-   "t_video": 47.924,
+   "t_video": 63.924,
    "lane": "monitors",
    "kind": "arm",
    "label": "arm relative_frame line_green",
@@ -263,7 +264,7 @@
   },
   {
    "t_real": 547.848,
-   "t_video": 48.091,
+   "t_video": 64.091,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: phase",
@@ -271,7 +272,7 @@
   },
   {
    "t_real": 550.537,
-   "t_video": 50.803,
+   "t_video": 66.803,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE mon_45c92dd02383 base1",
@@ -279,7 +280,7 @@
   },
   {
    "t_real": 550.538,
-   "t_video": 50.803,
+   "t_video": 66.803,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm mon_45c92dd02383",
@@ -287,7 +288,7 @@
   },
   {
    "t_real": 550.538,
-   "t_video": 50.803,
+   "t_video": 66.803,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE mon_fca6bae0bf67 u_brown",
@@ -295,7 +296,7 @@
   },
   {
    "t_real": 550.538,
-   "t_video": 52.303,
+   "t_video": 68.303,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm mon_fca6bae0bf67",
@@ -303,7 +304,7 @@
   },
   {
    "t_real": 550.538,
-   "t_video": 52.303,
+   "t_video": 68.303,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE mon_b1b17e87c7a5 u_orange",
@@ -311,7 +312,7 @@
   },
   {
    "t_real": 550.538,
-   "t_video": 52.304,
+   "t_video": 68.304,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm mon_b1b17e87c7a5",
@@ -319,7 +320,7 @@
   },
   {
    "t_real": 551.018,
-   "t_video": 52.784,
+   "t_video": 68.784,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: fire",
@@ -327,7 +328,7 @@
   },
   {
    "t_real": 553.388,
-   "t_video": 54.409,
+   "t_video": 70.409,
    "lane": "monitors",
    "kind": "fire",
    "label": "FIRE mon_fccb8146b4c2 line_green",
@@ -335,7 +336,7 @@
   },
   {
    "t_real": 553.388,
-   "t_video": 55.91,
+   "t_video": 71.91,
    "lane": "monitors",
    "kind": "disarm",
    "label": "disarm mon_fccb8146b4c2",
@@ -343,7 +344,7 @@
   },
   {
    "t_real": 571.607,
-   "t_video": 61.437,
+   "t_video": 77.437,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step pick_line_green_retry",
@@ -351,7 +352,7 @@
   },
   {
    "t_real": 571.607,
-   "t_video": 61.437,
+   "t_video": 77.437,
    "lane": "executor",
    "kind": "step_claim",
    "label": "pick_line_green_retry: success",
@@ -359,7 +360,7 @@
   },
   {
    "t_real": 572.161,
-   "t_video": 61.991,
+   "t_video": 77.991,
    "lane": "watchdog",
    "kind": "look_frame",
    "label": "frame 0003-9f5f6d4d",
@@ -367,7 +368,7 @@
   },
   {
    "t_real": 572.225,
-   "t_video": 63.555,
+   "t_video": 79.555,
    "lane": "watchdog",
    "kind": "look",
    "label": "look() 0003-9f5f6d4d",
@@ -375,7 +376,7 @@
   },
   {
    "t_real": 572.357,
-   "t_video": 63.686,
+   "t_video": 79.686,
    "lane": "bus",
    "kind": "begin_step",
    "label": "begin_step place_approach_line_green_retry",
@@ -383,7 +384,7 @@
   },
   {
    "t_real": 572.357,
-   "t_video": 63.686,
+   "t_video": 79.686,
    "lane": "executor",
    "kind": "step_start",
    "label": "begin place_approach_line_green_retry",
@@ -391,7 +392,7 @@
   },
   {
    "t_real": 584.111,
-   "t_video": 65.86,
+   "t_video": 81.86,
    "lane": "watchdog",
    "kind": "frames_captured",
    "label": "captured 18 frames",
@@ -399,7 +400,7 @@
   },
   {
    "t_real": 597.702,
-   "t_video": 69.934,
+   "t_video": 85.934,
    "lane": "watchdog",
    "kind": "verdict",
    "label": "FAIL pick_line_green_retry",
@@ -407,7 +408,7 @@
   },
   {
    "t_real": 600.026,
-   "t_video": 71.099,
+   "t_video": 87.099,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: fire",
@@ -415,7 +416,7 @@
   },
   {
    "t_real": 608.544,
-   "t_video": 74.539,
+   "t_video": 90.539,
    "lane": "watchdog",
    "kind": "verdict",
    "label": "FAIL pick_line_green_retry",
@@ -423,7 +424,7 @@
   },
   {
    "t_real": 610.19,
-   "t_video": 75.62,
+   "t_video": 91.62,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -431,7 +432,7 @@
   },
   {
    "t_real": 625.325,
-   "t_video": 79.886,
+   "t_video": 95.886,
    "lane": "watchdog",
    "kind": "look_frame",
    "label": "frame 0004-5c4282bd",
@@ -439,7 +440,7 @@
   },
   {
    "t_real": 625.388,
-   "t_video": 79.949,
+   "t_video": 95.949,
    "lane": "watchdog",
    "kind": "look",
    "label": "look() 0004-5c4282bd",
@@ -447,7 +448,7 @@
   },
   {
    "t_real": 639.762,
-   "t_video": 82.566,
+   "t_video": 98.566,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -455,7 +456,7 @@
   },
   {
    "t_real": 645.965,
-   "t_video": 83.341,
+   "t_video": 99.341,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -463,7 +464,7 @@
   },
   {
    "t_real": 647.042,
-   "t_video": 83.476,
+   "t_video": 99.476,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_end",
@@ -471,7 +472,7 @@
   },
   {
    "t_real": 648.995,
-   "t_video": 83.72,
+   "t_video": 99.72,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -479,7 +480,7 @@
   },
   {
    "t_real": 658.794,
-   "t_video": 87.32,
+   "t_video": 103.32,
    "lane": "bus",
    "kind": "end_step",
    "label": "end_step place_approach_line_green_retry",
@@ -487,7 +488,7 @@
   },
   {
    "t_real": 658.794,
-   "t_video": 87.32,
+   "t_video": 103.32,
    "lane": "executor",
    "kind": "step_claim",
    "label": "place_approach_line_green_retry: failure",
@@ -495,7 +496,7 @@
   },
   {
    "t_real": 658.797,
-   "t_video": 87.323,
+   "t_video": 103.323,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: end_step",
@@ -503,7 +504,7 @@
   },
   {
    "t_real": 664.69,
-   "t_video": 88.932,
+   "t_video": 104.932,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_start",
@@ -511,7 +512,7 @@
   },
   {
    "t_real": 670.941,
-   "t_video": 89.713,
+   "t_video": 105.713,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: skill_end",
@@ -519,7 +520,7 @@
   },
   {
    "t_real": 678.309,
-   "t_video": 90.634,
+   "t_video": 106.634,
    "lane": "bus",
    "kind": "run_ended",
    "label": "run_ended aborted",
@@ -527,7 +528,7 @@
   },
   {
    "t_real": 678.309,
-   "t_video": 90.634,
+   "t_video": 106.634,
    "lane": "executor",
    "kind": "run_end",
    "label": "run ended: aborted",
@@ -535,7 +536,7 @@
   },
   {
    "t_real": 678.31,
-   "t_video": 90.635,
+   "t_video": 106.635,
    "lane": "watchdog",
    "kind": "wake",
    "label": "wake: run_ended",
@@ -543,7 +544,7 @@
   },
   {
    "t_real": 763.743,
-   "t_video": 103.689,
+   "t_video": 119.689,
    "lane": "watchdog",
    "kind": "run_verdict",
    "label": "FAIL run",
