@@ -1,11 +1,7 @@
 # static/images
 
-Placeholder folder. The page expects these files and shows a labelled box until they exist:
+Figures for the page. Any that are missing show as a labelled box:
 
-- `teaser_figure.png` (overview figure)
-- `architecture.png`
-- `runtime_cycle.png` (the swimlane data flow figure)
-
-Present:
-
-- `task_handover.png`, from `WatchDog_V1/paper_media/figures/task_handover.py`
+- `architecture.png` (system architecture, Fig. 1 of the paper)
+- `runtime_cycle.png` (runtime swimlane data flow, Fig. 2 of the paper)
+- `task_handover.png` (one task, two briefs), from `WatchDog_V1/paper_media/figures/task_handover.py`

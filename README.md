@@ -12,9 +12,9 @@ no build step. Every link in it is relative, because the site lives under the
 index.html                 the page (Bulma from a CDN, Nerfies section layout)
 .nojekyll                  serve static/ as is
 static/css/index.css
-static/js/run_explorer.js  Run Explorer, media placeholders, BibTeX copy
+static/js/run_explorer.js  Run Explorer, figure placeholders, result tabs, BibTeX copy
 static/images/             figures (placeholders until added)
-static/videos/             teaser video (placeholder until added)
+static/videos/             currently unused
 static/runs/manifest.json  list of runs shown in the Run Explorer
 static/runs/<run_id>.json  trimmed event log for one run
 static/runs/<run_id>.mp4   replay video, under 90 MB
