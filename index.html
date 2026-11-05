@@ -168,6 +168,52 @@
         Each video opens with the hand-over card: the task and the brief each agent received for that run.
       </p>
     </div>
+
+    <h3 class="title is-5 has-text-centered mt-5">Example runs</h3>
+    <div class="tabs is-toggle is-centered is-small example-tabs js-tabs is-hidden" role="tablist">
+      <ul>
+        <li class="is-active"><a href="#example-conformant" role="tab" data-panel="example-conformant">Conformant run</a></li>
+        <li><a href="#example-fault" role="tab" data-panel="example-fault">Nonconforming run with a fault</a></li>
+        <li><a href="#example-observation" role="tab" data-panel="example-observation">Scene observation</a></li>
+      </ul>
+    </div>
+
+    <div class="example-panel" id="example-conformant" role="tabpanel">
+      <figure class="figure-block">
+        <a href="static/images/example_conformant.png" target="_blank" rel="noopener">
+          <img class="placeholder-img" src="static/images/example_conformant.png" alt="Conformant run: frames of the pick and place of u_brown above the four lane timeline, with monitors armed and none firing, and a grip effort plot that stays below the clamp_u_brown limit" data-placeholder="static/images/example_conformant.png not found">
+        </a>
+        <figcaption>
+          Conformant run. WatchDog arms its monitors for pick_u_brown and place_u_brown, none fires, and the
+          finger effort stays below the clamp_u_brown limit throughout.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="example-panel" id="example-fault" role="tabpanel">
+      <figure class="figure-block">
+        <a href="static/images/example_fault.png" target="_blank" rel="noopener">
+          <img class="placeholder-img" src="static/images/example_fault.png" alt="Nonconforming run: during place_inverted_u_yellow five monitors fire within 1.6 s and WatchDog records a FAIL verdict" data-placeholder="static/images/example_fault.png not found">
+        </a>
+        <figcaption>
+          Nonconforming run with a fault. During place_inverted_u_yellow, five monitors fire within 1.6 s
+          (stationarity monitors on placed parts and the slip monitor on inverted_u_yellow), and WatchDog
+          records a FAIL verdict for the step.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="example-panel" id="example-observation" role="tabpanel">
+      <figure class="figure-block">
+        <a href="static/images/example_observation.png" target="_blank" rel="noopener">
+          <img class="placeholder-img" src="static/images/example_observation.png" alt="Scene observation run: an object enters the workspace during place_line_green, the workspace observation monitor fires and WatchDog calls look()" data-placeholder="static/images/example_observation.png not found">
+        </a>
+        <figcaption>
+          Scene observation. While the executor places line_green, an object enters the workspace; the
+          workspace observation monitor fires and WatchDog calls look() to inspect the scene.
+        </figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -256,7 +302,7 @@
       1 clean, 2 nonconforming, 3 conforming with an unspecified extra step, 4 wrong executor specification.
     </p>
 
-    <div class="tabs is-boxed is-small results-tabs is-hidden" id="results-tabs" role="tablist">
+    <div class="tabs is-boxed is-small results-tabs js-tabs is-hidden" id="results-tabs" role="tablist">
       <ul>
         <li class="is-active"><a href="#table-1" role="tab" data-panel="table-1">Table 1. Baseline</a></li>
         <li><a href="#table-2" role="tab" data-panel="table-2">Table 2. Independence</a></li>

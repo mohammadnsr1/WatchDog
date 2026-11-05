@@ -43,13 +43,17 @@
   }
 
   // ------------------------------------------------------------------
-  // Result tabs. Without JavaScript all four tables stay stacked.
+  // Tab groups (result tables, example run figures). Without JavaScript
+  // every panel stays stacked and visible.
   // ------------------------------------------------------------------
 
-  function initResultTabs() {
-    var tabs = $("results-tabs");
-    if (!tabs) { return; }
+  function initTabs() {
+    Array.prototype.forEach.call(document.querySelectorAll(".js-tabs"), initTabGroup);
+  }
+
+  function initTabGroup(tabs) {
     var links = tabs.querySelectorAll("a[data-panel]");
+    if (!links.length) { return; }
     var show = function (id) {
       Array.prototype.forEach.call(links, function (a) {
         var on = a.getAttribute("data-panel") === id;
@@ -420,7 +424,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     initPlaceholders();
-    initResultTabs();
+    initTabs();
     initCopy();
     initTheater();
     initExplorer();

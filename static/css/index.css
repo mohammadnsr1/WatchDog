@@ -246,5 +246,5 @@ body {
   .event-list li { grid-template-columns: auto 1fr; }
   .event-list li .ev-time { grid-column: 1 / -1; }
   .copy-btn { position: static; margin-bottom: 0.5rem; }
-  .results-tabs ul { flex-wrap: wrap; }
+  .results-tabs ul, .example-tabs ul { flex-wrap: wrap; }
 }
