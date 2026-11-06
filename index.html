@@ -151,25 +151,6 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">How it works</h2>
-    <figure class="figure-block">
-      <a href="static/images/runtime_cycle.png" target="_blank" rel="noopener">
-        <img class="placeholder-img" src="static/images/runtime_cycle.png" alt="Runtime data flow of one run: simulation frames above a timeline with four lanes, Executor Agent, ROS 2 Event Bus, Deterministic Monitors and WatchDog Agent, marking step boundaries, gate openings, monitor arming, disarming, fires and look() observations" data-placeholder="static/images/runtime_cycle.png not found">
-      </a>
-      <figcaption>[PLACEHOLDER] Data flow across four lanes: Executor Agent, ROS 2 Event Bus, Deterministic Monitors, WatchDog Agent.</figcaption>
-    </figure>
-    <div class="content has-text-justified">
-      <p>
-        Before the executor may begin a step, the orchestrator waits for WatchDog to confirm its monitors
-        are armed. WatchDog arms monitors from a library of three families (relative frame, stationarity,
-        effort event) or writes new monitor code, and every monitor traces back to a clause of the task
-        contract, with thresholds taken from the instruction or the per object registry. Between wake
-        points WatchDog sits idle: it reasons only when a step is announced, a monitor fires, a step ends,
-        or a timeout occurs, never on a fixed polling interval.
-        Each video opens with the hand-over card: the task and the brief each agent received for that run.
-      </p>
-    </div>
-
-    <h3 class="title is-5 has-text-centered mt-5">Example runs</h3>
     <div class="tabs is-toggle is-centered is-small example-tabs js-tabs is-hidden" role="tablist">
       <ul>
         <li class="is-active"><a href="#example-conformant" role="tab" data-panel="example-conformant">Conformant run</a></li>
@@ -213,6 +194,18 @@
           workspace observation monitor fires and WatchDog calls look() to inspect the scene.
         </figcaption>
       </figure>
+    </div>
+
+    <div class="content has-text-justified">
+      <p>
+        Before the executor may begin a step, the orchestrator waits for WatchDog to confirm its monitors
+        are armed. WatchDog arms monitors from a library of three families (relative frame, stationarity,
+        effort event) or writes new monitor code, and every monitor traces back to a clause of the task
+        contract, with thresholds taken from the instruction or the per object registry. Between wake
+        points WatchDog sits idle: it reasons only when a step is announced, a monitor fires, a step ends,
+        or a timeout occurs, never on a fixed polling interval.
+        Each video opens with the hand-over card: the task and the brief each agent received for that run.
+      </p>
     </div>
   </div>
 </section>
