@@ -9,7 +9,7 @@
   // Option text for the scenario dropdown, in the paper's wording.
   var SCENARIO_TEXT = {
     S1: "S1: library monitors only",
-    S2: "S2: library or authored monitors",
+    S2: "S2: library or authored monitors, or both",
     S3: "S3: authored monitors only",
     S4: "S4: no WatchDog, executor monitors itself"
   };

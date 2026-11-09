@@ -28,6 +28,7 @@ body {
 .publication-authors { margin-top: 0.75rem; }
 .publication-authors a { color: hsl(204, 86%, 53%) !important; }
 .author-block { display: inline-block; margin-right: 0.25rem; }
+.publication-venue { color: var(--muted); margin-top: 0.5rem; }
 .publication-links { margin-top: 1.25rem; }
 .publication-links .button { margin: 0.25rem; }
 

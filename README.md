@@ -1,5 +1,5 @@
 # WatchDog
-WatchDog: Physically Grounded Conformance Monitoring for Agentic Robotic Systems 
+WatchDog: An Independent Inspector for Agentic Robotic Manufacturing (NAMRC 55, 2027)
 
 ## Project website
 
