@@ -224,6 +224,9 @@ body {
 .results-table { width: 100%; }
 .results-table th, .results-table td { text-align: center; white-space: nowrap; vertical-align: middle; }
 .results-table tbody th { text-align: left; }
+.design-table .results-table td,
+.design-table .results-table thead th { text-align: left; white-space: normal; }
+.design-table .results-table thead th { background: var(--panel); }
 .table-caption { color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; }
 .timing-note { margin-top: 0.5rem; }
 

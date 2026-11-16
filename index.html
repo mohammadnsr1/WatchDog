@@ -60,26 +60,27 @@
             process conforms to its specification, that failures are detected in time, and that the reported
             record of events can be trusted. An agent that checks its own work cannot give that assurance,
             because its execution and its verification share the same reasoning, and the same
-            misunderstanding can affect both. Manufacturing handles this by keeping execution separate from
-            inspection.
+            misunderstanding can affect both. Conventional manufacturing operations separate inspection and
+            process execution.
           </p>
           <p>
             We present WatchDog, a supervisory monitoring architecture that brings this separation to agentic
             robotic systems. WatchDog runs alongside the executing agent with no command authority, observes
             the cell through its own sensing channels, and takes its requirements from a separately authored
-            specification rather than from the executor's plan. It arms runtime monitors for grasp state,
-            insertion tolerance, disturbance of parts, applied effort, and the workspace. The monitors run at
-            sensor rate, while the language model reasons only when arming the monitors and when judging a
-            monitor fire. Each verdict is tied to a requirement and backed by timestamped evidence, producing
+            specification rather than from the executor's plan. It arms runtime monitors such as grasp state,
+            insertion tolerance, disturbance of parts, applied effort, and the workspace. Once armed, the
+            monitors run over the sensor data at the sensor rate, and the large language model is used only to
+            set them up at the start of each step and to judge each alarm they raise. Each verdict is tied to a requirement and backed by timestamped evidence, producing
             a traceable conformance record.
           </p>
           <p>
-            We evaluate WatchDog in Isaac Sim, supervising an LLM executor agent on an assembly from the
+            We evaluate WatchDog in NVIDIA Isaac Sim, supervising an LLM executor agent on an assembly from the
             Functional Manipulation Benchmark over 108 runs. The results show that a separate WatchDog armed
             over 90% of the required checks, against 66.4% when the executor monitored itself, and caught a
-            corrupted executor specification at the step where it occurred in 9 of 9 runs. Although a
-            stronger model closed the coverage gap of self monitoring, the independence and latency gaps
-            remained, and monitoring with a separate WatchDog in parallel is more time efficient than a
+            corrupted executor specification at the step where it occurred in 9 of 9 runs. A more capable
+            model with more reasoning (Claude Opus 5.5 at medium effort, against Claude Sonnet 5 at low effort)
+            closed the coverage gap of self monitoring, but the independence and latency gaps remained, and
+            monitoring with a separate WatchDog in parallel is more time efficient than a
             single agent executing and monitoring itself.
           </p>
         </div>
@@ -95,7 +96,7 @@
     <div class="columns is-multiline findings">
       <div class="column is-6">
         <div class="finding-card">
-          <p class="finding-lead">A separate monitoring agent arms more of what the task requires.</p>
+          <p class="finding-lead">A separate monitoring agent arms more of the required monitors.</p>
           <p>Arming coverage is 90.3 to 92.7% with WatchDog (S1 to S3), against 66.4% when the executor monitors itself (S4). Fault recall is 75.8 to 100% with a separate agent, against 59.2% without.</p>
         </div>
       </div>
@@ -113,13 +114,13 @@
       </div>
       <div class="column is-6">
         <div class="finding-card">
-          <p class="finding-lead">Scene observation is a capability limit, not a sensing one.</p>
-          <p>Across 81 detectable episodes in the baseline, the Sonnet-low agent reported none. With Opus as the monitoring model, the same episodes were reported at 55.6% at low effort and 90% at medium effort in S3.</p>
+          <p class="finding-lead">Scene observation is a capability limit.</p>
+          <p>Across the 81 baseline runs that carried a detectable episode, the Sonnet-low agent reported none, in any scenario. With Opus as the monitoring model, the same episodes were reported at 55.6% at low effort and 90% at medium effort in S3.</p>
         </div>
       </div>
       <div class="column is-6">
         <div class="finding-card">
-          <p class="finding-lead">A stronger monitoring model closes the coverage gap but not the independence gap.</p>
+          <p class="finding-lead">A stronger monitoring model closes the coverage gap but not the independence and latency gaps.</p>
           <p>Moving from Sonnet-low to Opus-medium takes S4 arming coverage from 68.4% to 99.8%, but S4 fault recall reaches 85.7%, where the same model in S3 reaches 100%.</p>
         </div>
       </div>
@@ -144,8 +145,8 @@
       <figcaption>
         Figure 1. System architecture. The task contract (instructions and requirements) is sent to both
         the executor and WatchDog agents at the start of a step. Each agent reasons independently and calls
-        only its own MCP server: the executor's reaching gripper, motion, and scene tools, WatchDog's
-        reaching monitor arming, monitor authoring, and evidence recording. An orchestrator passes
+        only its own MCP server: the executor's server reaches gripper, motion, and scene tools, and
+        WatchDog's reaches monitor arming, monitor authoring, and evidence recording. An orchestrator passes
         step-synchronization signals between the two agents but holds no reasoning role and calls neither
         agent's tools.
       </figcaption>
@@ -158,15 +159,16 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">One task, two briefs</h2>
     <figure class="figure-block">
-      <img src="static/images/task_handover.png" alt="Task hand-over: one task specification, two agents, two different briefs">
-      <figcaption>Figure 2. WatchDog arms monitors before each step, the monitors watch the cell at sensor
-        rate while the executor acts, and each fire is adjudicated into a verdict backed by recorded evidence.
-        Before a run, the same task specification reaches both agents, but each gets a different brief.
-        The executor receives <em>how</em>: the step plan (pick, approach, seat for each of the four parts) with grasp widths,
-        approach offsets and placement frames, and the tools to move the arm and gripper. The WatchDog receives only
-        <em>what must be true</em>: the end state required at each place step, the limits that must hold throughout
-        (clamp effort, no slip, untouched parts stay put) and the duty to watch the work area for anything unexpected.
-        Every threshold comes from the part registry, not from either agent. The two never talk to each other except through the event stream.</figcaption>
+      <a href="static/images/task_handover.png" target="_blank" rel="noopener">
+        <img src="static/images/task_handover.png" alt="How it works: the task specification and part registry feed two agents. The executor receives HOW, the step plan; WatchDog receives WHAT must hold during the process plus the expected process plan. Every step: executor announces, WatchDog arms monitors, gate released, robot moves, a fire is judged, verdict recorded.">
+      </a>
+      <figcaption>Figure 2. How it works, shown for an assembly from the Functional Manipulation Benchmark
+        (FMB). The executor receives the 12-step process plan (HOW), including where each part is grasped and
+        placed, and carries it out. WatchDog receives the requirements (WHAT), with thresholds drawn from the
+        part registry, and the expected process plan, and records any step the executor takes outside that
+        plan. At each step, WatchDog arms its monitors before the gate opens, the monitors watch the cell at
+        sensor rate while the robot moves, and each fire is adjudicated into a verdict backed by recorded
+        evidence.</figcaption>
     </figure>
   </div>
 </section>
@@ -227,6 +229,15 @@
 
     <div class="content has-text-justified">
       <p>
+        <strong>Two briefs.</strong> The executor receives a 12-step process plan, a pick, an approach, and a
+        seat for each part, which defines where each part is grasped and where it is placed. It does not plan
+        the assembly; it carries out these steps with its tools. WatchDog receives the requirements that must
+        hold throughout the process, including not disturbing seated parts or unrelated objects on the table,
+        grasp retention tolerances, grasp effort tolerances, and the expected process plan, but not the
+        executor's grasp or placement details or its reports. WatchDog is also asked to record any step that
+        is not in the expected plan.
+      </p>
+      <p>
         <strong>Step gate.</strong> Before the executor is allowed to begin a step, the orchestrator waits
         for the WatchDog agent to confirm its monitors are armed. Without it, nothing guarantees WatchDog
         has finished arming before the executor starts moving.
@@ -250,6 +261,14 @@
         verdict is logged with a timestamp, a ROS 2 bag records every topic in the cell, and the session
         manifest stores a hash of the specification registry, so each verdict points to the clause it
         concerns and to the evidence that supports it.
+      </p>
+      <p>
+        <strong>Generality.</strong> WatchDog needs only signals published on the middleware and a
+        specification to check them against. A welding, machining, or dispensing cell publishes different
+        signals, such as current, spindle load, or flow rate, but the pattern is the same: wrap the signal as
+        a typed function, add a monitor family that reads it, or let the WatchDog agent write the monitor from
+        the specification. Because WatchDog never calls the executor's tools, the executor can be an agent
+        developed by someone else, a scripted program, or a human operator.
       </p>
       <p>
         Each video opens with the hand-over card: the task and the brief each agent received for that run.
@@ -341,32 +360,55 @@
       an assembly from the Functional Manipulation Benchmark (FMB), with per-object specifications in the
       registry file. Each run took between 8 and 15 minutes.
     </p>
+    <div class="results-panel design-table">
+      <h3 class="title is-6 table-title">Table 1. Monitoring scenarios and run classes used in the evaluation.</h3>
+      <div class="table-scroll">
+        <table class="table is-narrow results-table">
+          <thead>
+            <tr><th colspan="2">Scenarios (who monitors, and how)</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>S1</th><td>Separate WatchDog; arms library monitors only.</td></tr>
+            <tr><th>S2</th><td>Separate WatchDog; may arm library monitors, write its own, or both.</td></tr>
+            <tr><th>S3</th><td>Separate WatchDog; writes its own monitor code only.</td></tr>
+            <tr><th>S4</th><td>No WatchDog; the executor arms or writes its own monitors while doing the task.</td></tr>
+          </tbody>
+          <thead>
+            <tr><th colspan="2">Run classes (what happens in the run)</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Class 1</th><td>Clean run; conforms to the specification.</td></tr>
+            <tr><th>Class 2</th><td>A violation occurs; the executor's specification is correct, so it may notice and retry.</td></tr>
+            <tr><th>Class 3</th><td>The executor adds an extra, valid step; the outcome conforms and should not be flagged.</td></tr>
+            <tr><th>Class 4</th><td>The executor's specification is wrong; it reports success while the true limit is violated.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <p class="results-intro">
-      <strong>Scenarios:</strong> S1, WatchDog arms library monitors only; S2, WatchDog can do either or
-      both; S3, WatchDog writes monitor code only; S4, no separate WatchDog agent, the executor arms or
-      writes its own monitors on top of doing the task.
-      <strong>Classes:</strong> 1, a clean, conforming run; 2, nonconforming with a correct executor
-      specification; 3, conforming with an extra, unspecified step that WatchDog should not flag; 4, a wrong
-      executor specification, made by tightening the maximum clamp effort in the true registry while the
-      executor keeps the looser value.
-      <strong>Models:</strong> the baseline uses Claude Sonnet 5 at low reasoning effort for both roles (23
-      runs per scenario: five Class 1, ten Class 2, five Class 3, three Class 4). A second set uses Claude
-      Opus 5.5 as the monitoring model on Classes 1 and 2 only, and is never pooled with the baseline.
+      The baseline runs all four scenarios against all four classes with Claude Sonnet 5 at low reasoning
+      effort for both roles: 23 runs per scenario, five Class 1, ten Class 2, five Class 3, and three Class 4.
+      Class 3 runs add an additional reorientation of the part. Class 4 runs tighten the maximum clamp effort
+      in the true registry, which WatchDog reads, while the executor keeps the original, looser value: the
+      grasp still looks successful and the executor reports success, yet the clamp has exceeded the true
+      limit, which can damage a part and cannot be undone by a retry. A second set switches the monitoring
+      agent to Claude Opus 5.5, at low and medium reasoning effort in S3 and at medium effort in S4, over
+      Classes 1 and 2; these runs are never pooled with the baseline.
     </p>
 
     <div class="tabs is-boxed is-small results-tabs js-tabs is-hidden" id="results-tabs" role="tablist">
       <ul>
-        <li class="is-active"><a href="#table-1" role="tab" data-panel="table-1">Table 1. Baseline</a></li>
-        <li><a href="#table-2" role="tab" data-panel="table-2">Table 2. Independence</a></li>
-        <li><a href="#table-3" role="tab" data-panel="table-3">Table 3. Scene observation</a></li>
-        <li><a href="#table-4" role="tab" data-panel="table-4">Table 4. Model and effort</a></li>
-        <li><a href="#table-5" role="tab" data-panel="table-5">Table 5. Task time</a></li>
+        <li class="is-active"><a href="#table-2" role="tab" data-panel="table-2">Table 2. Baseline</a></li>
+        <li><a href="#table-3" role="tab" data-panel="table-3">Table 3. Independence</a></li>
+        <li><a href="#table-4" role="tab" data-panel="table-4">Table 4. Scene observation</a></li>
+        <li><a href="#table-5" role="tab" data-panel="table-5">Table 5. Model and effort</a></li>
+        <li><a href="#table-6" role="tab" data-panel="table-6">Table 6. Task time</a></li>
       </ul>
     </div>
 
-    <!-- Table 1 -->
-    <div class="results-panel" id="table-1" role="tabpanel">
-      <h3 class="title is-6 table-title">Table 1. Baseline results for all four scenarios (Sonnet 5 at low reasoning effort, 23 runs each).</h3>
+    <!-- Table 2 -->
+    <div class="results-panel" id="table-2" role="tabpanel">
+      <h3 class="title is-6 table-title">Table 2. Baseline results for all four scenarios (Sonnet 5 at low reasoning effort, 23 runs each).</h3>
       <div class="table-scroll">
         <table class="table is-striped is-narrow results-table">
           <thead>
@@ -391,9 +433,9 @@
       </p>
     </div>
 
-    <!-- Table 2 -->
-    <div class="results-panel" id="table-2" role="tabpanel">
-      <h3 class="title is-6 table-title">Table 2. Independence under a corrupted executor specification (Class 4).</h3>
+    <!-- Table 3 -->
+    <div class="results-panel" id="table-3" role="tabpanel">
+      <h3 class="title is-6 table-title">Table 3. Independence under a corrupted executor specification (Class 4).</h3>
       <div class="table-scroll">
         <table class="table is-striped is-narrow results-table">
           <thead>
@@ -411,14 +453,15 @@
       <p class="table-caption">
         Step-level fault caught counts runs in which the violation was caught at the step where it occurred.
         The one correct S4 verdict was reached by accident: the executor missed the corrupted grasp and
-        flagged an unrelated fault later in the run. Every WatchDog miss was a fault that was caught and then
-        judged recovered, although a clamp past the true effort limit is not something a retry undoes.
+        flagged an unrelated fault later in the run. The WatchDog failures were due to misjudgment: in every
+        one, the fault was caught and then judged recovered, but a grasp with effort beyond tolerance cannot be
+        recovered, as the part is already damaged.
       </p>
     </div>
 
-    <!-- Table 3 -->
-    <div class="results-panel" id="table-3" role="tabpanel">
-      <h3 class="title is-6 table-title">Table 3. Scene-observation duty, whole batch, with the scripted oracle.</h3>
+    <!-- Table 4 -->
+    <div class="results-panel" id="table-4" role="tabpanel">
+      <h3 class="title is-6 table-title">Table 4. Scene-observation duty, whole batch, with the scripted oracle.</h3>
       <div class="table-scroll">
         <table class="table is-striped is-narrow results-table">
           <thead>
@@ -444,9 +487,9 @@
       </p>
     </div>
 
-    <!-- Table 4 -->
-    <div class="results-panel" id="table-4" role="tabpanel">
-      <h3 class="title is-6 table-title">Table 4. Effect of monitoring model and reasoning effort on S3 and S4 (Classes 1 and 2 only).</h3>
+    <!-- Table 5 -->
+    <div class="results-panel" id="table-5" role="tabpanel">
+      <h3 class="title is-6 table-title">Table 5. Effect of monitoring model and reasoning effort on S3 and S4 (Classes 1 and 2 only).</h3>
       <div class="table-scroll">
         <table class="table is-striped is-narrow results-table">
           <thead>
@@ -470,13 +513,13 @@
       <p class="table-caption">
         * In S4 the executor is its own monitor, so the model shown is the executor's. Token counts are the
         median of the agent's own output tokens per run, excluding cached input. Scene-observation results
-        for these conditions are in Table 3, and their timing and monitor delivery cost in Table 5.
+        for these conditions are in Table 4, and their timing and monitor delivery cost in Table 6.
       </p>
     </div>
 
-    <!-- Table 5 -->
-    <div class="results-panel" id="table-5" role="tabpanel">
-      <h3 class="title is-6 table-title">Table 5. Task-time decomposition and monitor delivery cost (medians).</h3>
+    <!-- Table 6 -->
+    <div class="results-panel" id="table-6" role="tabpanel">
+      <h3 class="title is-6 table-title">Table 6. Task-time decomposition and monitor delivery cost (medians).</h3>
       <div class="table-scroll">
         <table class="table is-striped is-narrow results-table">
           <thead>
@@ -512,6 +555,42 @@
         Sonnet-low and 6.1 s at Opus-medium, because it cannot poll until its current skill call returns.
         The evidence arrives on time in both arrangements, but only the separate agent is free to act on it
         while the arm is still moving.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 8b. Limitations and future work -->
+<section class="section pt-0" id="limitations">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Limitations and future work</h2>
+    <div class="content has-text-justified">
+      <p>
+        <strong>Adjudication.</strong> Every case in which WatchDog reached the wrong run verdict in Class 4
+        (5 of 9 runs across S1 to S3, Table 3) came from the same mistake: it caught the clamp violation at
+        the step where it happened, then reasoned that the assembly was still completed and judged the run
+        conformant. An over-effort clamp cannot be undone by finishing the task, so WatchDog needs explicit
+        rules for which faults a retry can fix and which it cannot.
+      </p>
+      <p>
+        <strong>Scene observation.</strong> With Sonnet 5 at low effort, WatchDog did not report unexpected
+        events, whether static, such as a cube that appears on the table mid-run and stays there, or
+        transient, such as an object that passes through the scene and leaves. Opus at medium effort reported
+        most of them.
+      </p>
+      <p>
+        <strong>Scope.</strong> All runs were in simulation, on one assembly, with poses from simulator
+        ground truth; the executor followed a given plan rather than planning the assembly itself; the Opus
+        and Class 4 sets were small; and all agents were Claude models, so pairings across model families are
+        untested. WatchDog also ran in observe-and-record mode and never halted the executor.
+      </p>
+      <p>
+        <strong>Next.</strong> We will evaluate WatchDog on a physical cell, where signals are noisy and
+        WatchDog must gather more evidence and write monitors that combine several modalities before it issues
+        a verdict. We also plan to give WatchDog the authority to halt unsafe actions and to perform risk
+        analysis, so it can judge whether a retry is safe before the executor attempts it, and to store its
+        verdicts on a blockchain, so that a record which cannot be changed is also a record grounded in
+        independent physical evidence.
       </p>
     </div>
   </div>
