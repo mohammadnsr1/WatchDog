@@ -3,8 +3,10 @@
 Figures for the page. Any that are missing show as a labelled box:
 
 - `architecture.png` (system architecture, Fig. 1 of the paper)
-- `runtime_cycle.png` (runtime swimlane data flow, Fig. 2 of the paper; not shown on the page now)
-- `example_conformant.png` (How it works example: conformant run, Fig. 3)
-- `example_fault.png` (How it works example: nonconforming run with a fault, Fig. 4)
-- `example_observation.png` (How it works example: scene observation, Fig. 5)
-- `task_handover.png` (one task, two briefs), from `WatchDog_V1/paper_media/figures/task_handover.py`
+- `fig2_how_it_works.png` (how it works: task, two briefs and the run cycle, Fig. 2 of the paper)
+- `example_conformant.png` (How it works tab: conformant run; not in the paper)
+- `fig3_fault.png` (How it works tab: nonconforming run with a fault, Fig. 3 of the paper)
+- `fig4_observation.png` (How it works tab: scene observation, Fig. 4 of the paper)
+- `runtime_cycle.png` (earlier swimlane figure; not shown on the page now)
+
+When a figure changes, give it a new file name so browsers and GitHub Pages cannot serve the old copy.
